@@ -400,7 +400,7 @@ elif page == "Faxtor Calendar":
         "May": [
             {"date": "4", "title": "[START] Assessment Center Training", "desc": "All Division"},
             {"date": "15", "title": "[START] Program Biro Juara", "desc": "BA & BS"},
-            {"date": "15", "title": "May Newsletter “Syarat Rekrutmen IPK 3.0”, "desc": "BA, Marcomm, R&D"},
+            {"date": "15", "title": "May Newsletter “Syarat Rekrutmen IPK 3.0”", "desc": "BA, Marcomm, R&D"},
             {"date": "16", "title": "Sumatra Webinar Series Vol 02 with Discoverme”, "desc": "BA, Marcomm, PLES"},
             {"date": "30", "title": "Education Webinar with Asosiasi Psikolog Pendidikan Indonesia (APSI) DKI Jakarta”, "desc": "BA, Marcomm, PLES"},
         ]
