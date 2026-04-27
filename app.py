@@ -401,15 +401,15 @@ elif page == "Faxtor Calendar":
             {"date": "4", "title": "[START] Assessment Center Training", "desc": "All Division"},
             {"date": "15", "title": "[START] Program Biro Juara", "desc": "BA & BS"},
             {"date": "15", "title": "May Newsletter “Syarat Rekrutmen IPK 3.0”", "desc": "BA, Marcomm, R&D"},
-            {"date": "16", "title": "Sumatra Webinar Series Vol 02 with Discoverme”, "desc": "BA, Marcomm, PLES"},
-            {"date": "30", "title": "Education Webinar with Asosiasi Psikolog Pendidikan Indonesia (APSI) DKI Jakarta”, "desc": "BA, Marcomm, PLES"},
+            {"date": "16", "title": "Sumatra Webinar Series Vol 02 with Discoverme", "desc": "BA, Marcomm, PLES"},
+            {"date": "30", "title": "Education Webinar with Asosiasi Psikolog Pendidikan Indonesia (APSI) DKI Jakarta", "desc": "BA, Marcomm, PLES"},
         ]
         "June": [
-            {"date": "15", "title": "May Newsletter “Cybernetic Leadership”, "desc": "BA, Marcomm, R&D"},
+            {"date": "15", "title": "June Newsletter “Cybernetic Leadership”", "desc": "BA, Marcomm, R&D"},
         ]
         "July": [
-            {"date": "15", "title": "May Newsletter “Karyawan Penurut vs Pembangkang”, "desc": "BA, Marcomm, R&D"},
-            {"date": "18", "title": "[TENTATIVE] Webinar with APIO Jawa Tengah”, "desc": "BA, Marcomm, R&D"},
+            {"date": "15", "title": "July Newsletter “Karyawan Penurut vs Pembangkang”", "desc": "BA, Marcomm, R&D"},
+            {"date": "18", "title": "[TENTATIVE] Webinar with APIO Jawa Tengah", "desc": "BA, Marcomm, R&D"},
     }
 
     # =========================
