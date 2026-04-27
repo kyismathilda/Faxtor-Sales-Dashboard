@@ -1,14 +1,13 @@
 import streamlit as st
 import pandas as pd
 
-# =========================
 # CONFIG
-# =========================
+
 st.set_page_config(layout="wide")
 
-# =========================
+
 # CUSTOM CSS
-# =========================
+
 st.markdown("""
 <style>
 
@@ -58,9 +57,9 @@ h1, h2, h3 {
 </style>
 """, unsafe_allow_html=True)
 
-# =========================
+
 # SIDEBAR
-# =========================
+
 with st.sidebar:
     st.image("logo_faxtor.png", width=1000)
     st.markdown("## Business Dashboard")
@@ -76,9 +75,9 @@ with st.sidebar:
         ]
     )
 
-# =========================
-# YOUR DATA
-# =========================
+
+# INPUT DATA
+
 royalty_pricing = {
     "PII": 45000,
     "OPTI": 40000,
@@ -161,9 +160,9 @@ logo_map = {
     "PII": "PII.png",
 }
 
-# =========================
+
 # PAGE 1
-# =========================
+
 if page == "Revenue & Profit Tracker":
 
     revenue_pct = (revenue_actual/revenue_target)*100
@@ -189,9 +188,9 @@ if page == "Revenue & Profit Tracker":
     st.progress(profit_pct/100)
     st.caption(f"{profit_pct:.0f}%")
 
-# =========================
+
 # PAGE 2
-# =========================
+
 elif page == "Expansion Tracker":
 
     st.title("Expansion Tracker")
@@ -220,29 +219,20 @@ elif page == "Expansion Tracker":
             st.metric(f"{island} Client", total_client, f"{percentage:.0f}% of total")
             st.bar_chart(table.set_index("Province"))
 
-# =========================
+
 # PAGE 3
-# =========================
+
 elif page == "Royalty Calculator":
 
     st.title("Royalty Calculator")
 
-    # =========================
-    # MODE
-    # =========================
     mode = st.radio("Skema Royalti", ["Percentage-based", "Fixed Number"])
 
-    # =========================
-    # DATAFRAME AWAL
-    # =========================
     table = pd.DataFrame(
         list(royalty_pricing.items()),
         columns=["Product", "Price"]
     )
 
-    # =========================
-    # LOGIC ROYALTY
-    # =========================
     if mode == "Percentage-based":
         rate = st.slider("Royalty Rate (%)", 0, 100, 30)
         rate = rate / 100
@@ -253,9 +243,6 @@ elif page == "Royalty Calculator":
         fixed = st.slider("Fixed Number (Rp)", 0, 50000, 10000)
         table["Royalty"] = fixed
 
-    # =========================
-    # TAMBAHAN
-    # =========================
     table["Server Cost"] = 10000
 
     table["Margin (%)"] = (
@@ -263,9 +250,9 @@ elif page == "Royalty Calculator":
         / table["Price"] * 100
     ).round(0).astype(int)
 
-    # =========================
+  
     # STYLING TABLE
-    # =========================
+   
     styled_table = table.style.set_table_styles([
         {
             "selector": "th",
@@ -277,29 +264,25 @@ elif page == "Royalty Calculator":
         }
     ])
 
-    # OPTIONAL FORMAT RUPIAH
     styled_table = styled_table.format({
         "Price": "Rp{:,.0f}",
         "Royalty": "Rp{:,.0f}",
         "Server Cost": "Rp{:,.0f}"
     })
 
-    # =========================
+    
     # OUTPUT
-    # =========================
+    
     st.subheader("Royalty Table")
     st.dataframe(styled_table)
 
-# =========================
+
 # PAGE 4
 
 elif page == "Sales Forecaster":
 
     st.title("Sales Forecaster")
 
-    # =========================
-    # PILIH PRICING
-    # =========================
     mode = st.radio(
         "Pilih Jenis Pricing",
         ["Standard Enterprise", "Professional Enterprise"]
@@ -307,23 +290,14 @@ elif page == "Sales Forecaster":
 
     pricing = standard_pricing if mode == "Standard Enterprise" else professional_pricing
 
-    # =========================
-    # TARGET
-    # =========================
     st.metric("Monthly Gross Target", f"Rp{gross_target:,}")
 
-    # =========================
-    # LAYOUT
-    # =========================
     col1, col2 = st.columns([1,1])
 
     quantity = {}
     data = []
     total_revenue = 0
 
-    # =========================
-    # INPUT AREA (KIRI)
-    # =========================
     with col1:
         st.subheader("Volume Penjualan")
 
@@ -331,7 +305,6 @@ elif page == "Sales Forecaster":
 
             col_img, col_slider = st.columns([1,3])
 
-            # === LOGO / TEXT ===
             with col_img:
                 if product in logo_map:
                     st.image(logo_map[product], width=70)
@@ -339,7 +312,6 @@ elif page == "Sales Forecaster":
                 else:
                     st.markdown(f"**{product}**")
 
-            # === SLIDER ===
             with col_slider:
                 quantity[product] = st.slider(
                     label="",
@@ -350,9 +322,6 @@ elif page == "Sales Forecaster":
                     key=product
                 )
 
-    # =========================
-    # CALCULATION
-    # =========================
     for product in pricing:
         price = pricing[product]
         qty = quantity[product]
@@ -370,9 +339,6 @@ elif page == "Sales Forecaster":
     df = pd.DataFrame(data)
     achievement = (total_revenue / gross_target) * 100
 
-    # =========================
-    # OUTPUT AREA (KANAN)
-    # =========================
     with col2:
         st.subheader("Total Revenue")
 
@@ -384,13 +350,11 @@ elif page == "Sales Forecaster":
 
         st.bar_chart(df.set_index("Product")["Revenue"])
 
+# PAGE 5
 elif page == "Faxtor 2026 Calendar":
 
     st.title("Faxtor 2026 Calendar")
 
-    # =========================
-    # DATA
-    # =========================
     events = {
         "April": [
             {"date": "15", "title": "April Newsletter “Love Bombing di Kantor”", "desc": "BA, Marcomm, R&D"},
@@ -413,9 +377,7 @@ elif page == "Faxtor 2026 Calendar":
         ],
     }
 
-    # =========================
     # CUSTOM CSS
-    # =========================
     st.markdown("""
         <style>
         .date-box {
@@ -447,9 +409,6 @@ elif page == "Faxtor 2026 Calendar":
         </style>
     """, unsafe_allow_html=True)
 
-    # =========================
-    # LOOP EVENTS
-    # =========================
     for month, month_events in events.items():
 
         st.subheader(month)
