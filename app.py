@@ -71,7 +71,8 @@ with st.sidebar:
             "Revenue & Profit Tracker",
             "Expansion Tracker",
             "Royalty Calculator",
-            "Sales Forecaster"
+            "Sales Forecaster",
+            "2026 Calendar"
         ]
     )
 
@@ -382,3 +383,92 @@ elif page == "Sales Forecaster":
         )
 
         st.bar_chart(df.set_index("Product")["Revenue"])
+
+elif page == "Faxtor Calendar":
+
+    st.title("Faxtor Calendar")
+
+    # =========================
+    # DATA
+    # =========================
+    events = {
+        "April": [
+            {"date": "15", "title": "April Newsletter “Love Bombing di Kantor”", "desc": "BA, Marcomm, R&D"},
+            {"date": "18", "title": "Sumatra Webinar Series Vol 01 with APIO Sumatra Barat & APIO Lampung", "desc": "BA, Marcomm, R&D"},
+            {"date": "25", "title": "[START] Program Diskon May Day", "desc": "BA, BS"},
+        ],
+        "May": [
+            {"date": "4", "title": "[START] Assessment Center Training", "desc": "All Division"},
+            {"date": "15", "title": "[START] Program Biro Juara", "desc": "BA & BS"},
+            {"date": "15", "title": "May Newsletter “Syarat Rekrutmen IPK 3.0”, "desc": "BA, Marcomm, R&D"},
+            {"date": "16", "title": "Sumatra Webinar Series Vol 02 with Discoverme”, "desc": "BA, Marcomm, PLES"},
+            {"date": "30", "title": "Education Webinar with Asosiasi Psikolog Pendidikan Indonesia (APSI) DKI Jakarta”, "desc": "BA, Marcomm, PLES"},
+        ]
+        "June": [
+            {"date": "15", "title": "May Newsletter “Cybernetic Leadership”, "desc": "BA, Marcomm, R&D"},
+        ]
+        "July": [
+            {"date": "15", "title": "May Newsletter “Karyawan Penurut vs Pembangkang”, "desc": "BA, Marcomm, R&D"},
+            {"date": "18", "title": "[TENTATIVE] Webinar with APIO Jawa Tengah”, "desc": "BA, Marcomm, R&D"},
+    }
+
+    # =========================
+    # CUSTOM CSS
+    # =========================
+    st.markdown("""
+        <style>
+        .date-box {
+            background-color: #f55164;
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .event-card {
+            background-color: #e5e7eb;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .event-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .event-desc {
+            font-size: 14px;
+            color: #6b7280;
+        }
+        </style>
+    """, unsafe_allow_html=True)
+
+    # =========================
+    # LOOP EVENTS
+    # =========================
+    for month, month_events in events.items():
+
+        st.subheader(month)
+
+        for event in month_events:
+            col1, col2 = st.columns([1, 5])
+
+            with col1:
+                st.markdown(f"""
+                    <div class="date-box">
+                        {event['date']}
+                    </div>
+                """, unsafe_allow_html=True)
+
+            with col2:
+                st.markdown(f"""
+                    <div class="event-card">
+                        <div class="event-title">{event['title']}</div>
+                        <div class="event-desc">{event['desc']}</div>
+                    </div>
+                """, unsafe_allow_html=True)
+
+            st.markdown("<br>", unsafe_allow_html=True)
