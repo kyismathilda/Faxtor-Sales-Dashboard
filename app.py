@@ -336,11 +336,11 @@ elif page == "Monthly Business Performance":
         icon_lm = "arrow_up.png" if d["growth_lm"] >= 0 else "arrow_down.png"
         icon_ytd = "arrow_up.png" if d["growth_ytd"] >= 0 else "arrow_down.png"
 
-        st.image(icon_lm, width=60)
+        st.image(icon_lm, width=100)
         st.metric("vs Last Month", f"{d['growth_lm']}%")
         st.caption(d["growth_lm_text"])
 
-        st.image(icon_ytd, width=60)
+        st.image(icon_ytd, width=100)
         st.metric("vs YTD", f"{d['growth_ytd']}%")
         st.caption(d["growth_ytd_text"])
 
@@ -358,6 +358,7 @@ elif page == "Monthly Business Performance":
     df = pd.DataFrame(list(d["tools"].items()), columns=["Tools", "Usage"])
     st.bar_chart(df.set_index("Tools"))
 
+# PAGE 3
 elif page == "Expansion Tracker":
 
     st.title("Expansion Tracker")
@@ -387,7 +388,7 @@ elif page == "Expansion Tracker":
             st.bar_chart(table.set_index("Province"))
 
 
-# PAGE 3
+# PAGE 4
 
 elif page == "Royalty Calculator":
 
@@ -444,7 +445,7 @@ elif page == "Royalty Calculator":
     st.dataframe(styled_table)
 
 
-# PAGE 4
+# PAGE 5
 
 elif page == "Sales Forecaster":
 
@@ -517,7 +518,7 @@ elif page == "Sales Forecaster":
 
         st.bar_chart(df.set_index("Product")["Revenue"])
 
-# PAGE 5
+# PAGE 6
 elif page == "Faxtor 2026 Calendar":
 
     st.title("Faxtor 2026 Calendar")
