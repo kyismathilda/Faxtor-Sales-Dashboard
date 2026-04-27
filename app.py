@@ -197,9 +197,6 @@ elif page == "Monthly Business Performance":
 
     st.title("Monthly Business Performance")
 
-    # =========================
-    # DATA
-    # =========================
     data = {
         "January": {
             "gross": 104,
@@ -277,15 +274,11 @@ elif page == "Monthly Business Performance":
         }
     }
 
-    # =========================
-    # MONTH SELECTOR
-    # =========================
+
     month = st.radio("Choose Month", list(data.keys()))
     d = data[month]
 
-    # =========================
-    # DONUT FUNCTION (FIXED)
-    # =========================
+   
     def donut(value):
         fig, ax = plt.subplots()
 
@@ -304,32 +297,24 @@ elif page == "Monthly Business Performance":
 
         return fig
 
-    # =========================
-    # LAYOUT
-    # =========================
+   
     col1, col2, col3 = st.columns([2,2,1])
 
-    # =========================
-    # GROSS
-    # =========================
+   
     with col1:
         st.subheader("GROSS TARGET")
         st.pyplot(donut(d["gross"]))
         st.markdown(f"**{d['gross_nominal']}**")
         st.caption(d["gross_insight"])
 
-    # =========================
-    # NETT
-    # =========================
+   
     with col2:
         st.subheader("NETT TARGET")
         st.pyplot(donut(d["nett"]))
         st.markdown(f"**{d['nett_nominal']}**")
         st.caption(d["nett_insight"])
 
-    # =========================
-    # GROWTH (WITH IMAGE)
-    # =========================
+    
     with col3:
         st.subheader("Growth")
 
@@ -344,15 +329,11 @@ elif page == "Monthly Business Performance":
         st.metric("vs YTD", f"{d['growth_ytd']}%")
         st.caption(d["growth_ytd_text"])
 
-    # =========================
-    # NEW CLIENT
-    # =========================
+   
     st.subheader("New Client")
     st.markdown(f"## {d['client']}")
 
-    # =========================
-    # TOOLS USAGE
-    # =========================
+    
     st.subheader("Tools Usage")
 
     df = pd.DataFrame(list(d["tools"].items()), columns=["Tools", "Usage"])
