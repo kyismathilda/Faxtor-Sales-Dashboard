@@ -193,6 +193,8 @@ if page == "Revenue & Profit Tracker":
 # PAGE 2
 elif page == "Monthly Business Performance":
 
+    import matplotlib.pyplot as plt
+
     st.title("Monthly Business Performance")
 
     # =========================
@@ -282,44 +284,63 @@ elif page == "Monthly Business Performance":
     d = data[month]
 
     # =========================
-    # DONUT CHART
+    # DONUT FUNCTION (FIXED)
     # =========================
-    import matplotlib.pyplot as plt
-
     def donut(value):
         fig, ax = plt.subplots()
-        ax.pie([value, 100-value], colors=["#4aa3c7", "#e5e7eb"],
-               startangle=90, counterclock=False,
-               wedgeprops={'width':0.3})
+
+        # FIX supaya tidak negatif
+        display_value = min(value, 100)
+
+        ax.pie(
+            [display_value, 100 - display_value],
+            colors=["#4aa3c7", "#e5e7eb"],
+            startangle=90,
+            counterclock=False,
+            wedgeprops={'width': 0.3}
+        )
+
         ax.text(0, 0, f"{value}%", ha='center', va='center', fontsize=18, fontweight='bold')
+
         return fig
 
+    # =========================
+    # LAYOUT
+    # =========================
     col1, col2, col3 = st.columns([2,2,1])
 
+    # =========================
+    # GROSS
+    # =========================
     with col1:
         st.subheader("GROSS TARGET")
         st.pyplot(donut(d["gross"]))
+        st.markdown(f"**{d['gross_nominal']}**")
         st.caption(d["gross_insight"])
 
+    # =========================
+    # NETT
+    # =========================
     with col2:
         st.subheader("NETT TARGET")
         st.pyplot(donut(d["nett"]))
+        st.markdown(f"**{d['nett_nominal']}**")
         st.caption(d["nett_insight"])
 
     # =========================
-    # GROWTH
+    # GROWTH (WITH IMAGE)
     # =========================
     with col3:
-        st.markdown("### Growth")
+        st.subheader("Growth")
 
         icon_lm = "arrow_up.png" if d["growth_lm"] >= 0 else "arrow_down.png"
         icon_ytd = "arrow_up.png" if d["growth_ytd"] >= 0 else "arrow_down.png"
 
-        st.image(icon_lm, width=50)
+        st.image(icon_lm, width=60)
         st.metric("vs Last Month", f"{d['growth_lm']}%")
         st.caption(d["growth_lm_text"])
 
-        st.image(icon_ytd, width=50)
+        st.image(icon_ytd, width=60)
         st.metric("vs YTD", f"{d['growth_ytd']}%")
         st.caption(d["growth_ytd_text"])
 
@@ -332,6 +353,8 @@ elif page == "Monthly Business Performance":
     # =========================
     # TOOLS USAGE
     # =========================
+    st.subheader("Tools Usage")
+
     df = pd.DataFrame(list(d["tools"].items()), columns=["Tools", "Usage"])
     st.bar_chart(df.set_index("Tools"))
 
