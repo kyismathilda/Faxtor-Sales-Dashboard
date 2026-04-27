@@ -72,7 +72,7 @@ with st.sidebar:
             "Expansion Tracker",
             "Royalty Calculator",
             "Sales Forecaster",
-            "2026 Calendar"
+            "Faxtor 2026 Calendar"
         ]
     )
 
@@ -384,9 +384,9 @@ elif page == "Sales Forecaster":
 
         st.bar_chart(df.set_index("Product")["Revenue"])
 
-elif page == "Faxtor Calendar":
+elif page == "Faxtor 2026 Calendar":
 
-    st.title("Faxtor Calendar")
+    st.title("Faxtor 2026 Calendar")
 
     # =========================
     # DATA
