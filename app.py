@@ -226,7 +226,7 @@ elif page == "Royalty Calculator":
 
     st.title("Royalty Calculator")
 
-    mode = st.radio("Skema Royalti", ["Percentage-based", "Fixed Number"])
+    mode = st.radio("Royalty Scheme", ["Percentage-based", "Fixed Number"])
 
     table = pd.DataFrame(
         list(royalty_pricing.items()),
@@ -284,7 +284,7 @@ elif page == "Sales Forecaster":
     st.title("Sales Forecaster")
 
     mode = st.radio(
-        "Pilih Jenis Pricing",
+        "Choose Pricing Setup",
         ["Standard Enterprise", "Professional Enterprise"]
     )
 
@@ -299,7 +299,7 @@ elif page == "Sales Forecaster":
     total_revenue = 0
 
     with col1:
-        st.subheader("Volume Penjualan")
+        st.subheader("Sales Volume")
 
         for product in pricing:
 
