@@ -68,6 +68,7 @@ with st.sidebar:
         "Features",
         [
             "Revenue & Profit Tracker",
+            "Monthly Business Performance",
             "Expansion Tracker",
             "Royalty Calculator",
             "Sales Forecaster",
@@ -190,6 +191,149 @@ if page == "Revenue & Profit Tracker":
 
 
 # PAGE 2
+elif page == "Monthly Business Performance":
+
+    st.title("Monthly Business Performance")
+
+    # =========================
+    # DATA
+    # =========================
+    data = {
+        "January": {
+            "gross": 104,
+            "gross_nominal": "Rp780.106.932",
+            "gross_insight": "We successfully surpassed the Gross Target by 104% (Rp780.106.932).",
+
+            "nett": 85,
+            "nett_nominal": "Rp254.435.608",
+            "nett_insight": "Though we achieved Gross Target, minimum Nett Income is Rp300.000.000 / month, yet we have -15% shortfall due to high operational cost.",
+
+            "growth_lm": 24,
+            "growth_lm_text": "vs Gross LM Dec’25 (Rp631.020.560)",
+
+            "growth_ytd": 250,
+            "growth_ytd_text": "vs Gross YTD Jan’25 (Rp295.485.500)",
+
+            "client": 17,
+
+            "tools": {
+                "FCAT": 581, "FCATs": 1171, "FCAT-R": 27, "FTPI": 1107,
+                "BIG FIVE": 524, "FEAST": 3403, "LSSI": 262, "IAMAR": 48,
+                "PII": 98, "EII": 138, "INCRITS": 45, "OPTI": 117,
+                "MSSQ": 27, "MSDQ": 28, "GWS": 3
+            }
+        },
+
+        "February": {
+            "gross": 133,
+            "gross_nominal": "Rp1.001.103.500",
+            "gross_insight": "We successfully surpass the Gross Target by 133% (Rp1,003,401,500).",
+
+            "nett": 66,
+            "nett_nominal": "Rp198.997.492",
+            "nett_insight": "Though we achieved Gross Target, minimum Nett Income is Rp300.000.000 / month, yet we have -34% shortfall due to high operational cost (Kimia Farma Project).",
+
+            "growth_lm": 29,
+            "growth_lm_text": "vs Gross LM Jan’26 (Rp780.106.932)",
+
+            "growth_ytd": 238,
+            "growth_ytd_text": "vs Gross YTD Feb’25 (Rp421.875.500)",
+
+            "client": 7,
+
+            "tools": {
+                "FCAT": 3305, "FCATs": 1755, "FCAT-R": 45, "FTPI": 1778,
+                "BIG FIVE": 989, "FEAST": 5285, "LSSI": 134, "IAMAR": 36,
+                "PII": 918, "EII": 64, "INCRITS": 2364, "OPTI": 2888,
+                "MSSQ": 239, "MSDQ": 232, "GWS": 7
+            }
+        },
+
+        "March": {
+            "gross": 88,
+            "gross_nominal": "Rp657.941.500",
+            "gross_insight": "We partially surpass the Gross Target by 88% (Rp657.941.500).",
+
+            "nett": 74,
+            "nett_nominal": "Rp222.281.620",
+            "nett_insight": "With minimum Nett Income is Rp300.000.000 / month, yet we have -26% shortfall due to high operational cost.",
+
+            "growth_lm": -34,
+            "growth_lm_text": "vs Gross LM Feb’26 (Rp1.001.103.500)",
+
+            "growth_ytd": 87,
+            "growth_ytd_text": "vs Gross YTD Mar’25 (Rp351.598.000)",
+
+            "client": 7,
+
+            "tools": {
+                "FCAT": 540, "FCATs": 610, "FCAT-R": 538, "FTPI": 1095,
+                "BIG FIVE": 939, "FEAST": 19357, "LSSI": 34, "IAMAR": 18,
+                "PII": 28, "EII": 35, "INCRITS": 261, "OPTI": 347,
+                "MSSQ": 37, "MSDQ": 24, "GWS": 1
+            }
+        }
+    }
+
+    # =========================
+    # MONTH SELECTOR
+    # =========================
+    month = st.radio("Choose Month", list(data.keys()))
+    d = data[month]
+
+    # =========================
+    # DONUT CHART
+    # =========================
+    import matplotlib.pyplot as plt
+
+    def donut(value):
+        fig, ax = plt.subplots()
+        ax.pie([value, 100-value], colors=["#4aa3c7", "#e5e7eb"],
+               startangle=90, counterclock=False,
+               wedgeprops={'width':0.3})
+        ax.text(0, 0, f"{value}%", ha='center', va='center', fontsize=18, fontweight='bold')
+        return fig
+
+    col1, col2, col3 = st.columns([2,2,1])
+
+    with col1:
+        st.subheader("GROSS TARGET")
+        st.pyplot(donut(d["gross"]))
+        st.caption(d["gross_insight"])
+
+    with col2:
+        st.subheader("NETT TARGET")
+        st.pyplot(donut(d["nett"]))
+        st.caption(d["nett_insight"])
+
+    # =========================
+    # GROWTH
+    # =========================
+    with col3:
+        st.markdown("### Growth")
+
+        icon_lm = "arrow_up.png" if d["growth_lm"] >= 0 else "arrow_down.png"
+        icon_ytd = "arrow_up.png" if d["growth_ytd"] >= 0 else "arrow_down.png"
+
+        st.image(icon_lm, width=50)
+        st.metric("vs Last Month", f"{d['growth_lm']}%")
+        st.caption(d["growth_lm_text"])
+
+        st.image(icon_ytd, width=50)
+        st.metric("vs YTD", f"{d['growth_ytd']}%")
+        st.caption(d["growth_ytd_text"])
+
+    # =========================
+    # NEW CLIENT
+    # =========================
+    st.subheader("New Client")
+    st.markdown(f"## {d['client']}")
+
+    # =========================
+    # TOOLS USAGE
+    # =========================
+    df = pd.DataFrame(list(d["tools"].items()), columns=["Tools", "Usage"])
+    st.bar_chart(df.set_index("Tools"))
 
 elif page == "Expansion Tracker":
 
