@@ -505,29 +505,37 @@ elif page == "Faxtor 2026 Calendar":
     st.title("Faxtor 2026 Calendar")
 
     events = {
+        "March": [
+            {"date": "1", "title": "Uji Coba FLSI - END : May", "desc": "R&D Fatiya"},
+            {"date": "1", "title": "Penormaan FTPI 2.0 - END : May", "desc": "R&D Hafi"},
+            {"date": "15", "title": "Launching Faxtor Newsletter", "desc": "BA, Marcomm"},
+        
         "April": [
             {"date": "1", "title": "Uji Coba CDPI-SR", "desc": "R&D Diana"},
             {"date": "1", "title": "Workshop Item Writer FCAT-2", "desc": "R&D Afiya"},
             {"date": "1", "title": "Test Construction FCAT-2 - END : May", "desc": "R&D Afiya"},
             {"date": "1", "title": "Training Master Excel - END : June", "desc": "R&D Fatiya"},
             {"date": "4", "title": "Workshop Tester CDPI-SR", "desc": "R&D Diana"},
-            {"date": "15", "title": "April Newsletter “Love Bombing di Kantor”", "desc": "BA, Marcomm, R&D"},
+            {"date": "15", "title": "April Newsletter “Love Bombing di Kantor”", "desc": "BA, Marcomm, Prof. Aulia"},
             {"date": "18", "title": "Sumatra Webinar Series Vol 01 with APIO Sumatra Barat & APIO Lampung", "desc": "BA, Marcomm, R&D"},
             {"date": "21", "title": "Pelatihan dan Evaluasi Psikolog Mitra Faxtor Batch 1 - END : June", "desc": "BA, PLES"},
             {"date": "25", "title": "[START] Program Diskon May Day", "desc": "BA, BS"},
         ],
         "May": [
+            {"date": "1", "title": "Pelatihan dan Evaluasi Biro Mitra Faxtor - END : July", "desc": "PLES"},
             {"date": "4", "title": "[START] Assessment Center Training", "desc": "All Division"},
             {"date": "15", "title": "[START] Program Biro Juara", "desc": "BA & BS"},
             {"date": "15", "title": "May Newsletter “Syarat Rekrutmen IPK 3.0”", "desc": "BA, Marcomm, R&D"},
+            {"date": "18", "title": "Faxtor Berkurban 2026", "desc": "HRBP Corporate, HRBP Commercial"},
             {"date": "16", "title": "Sumatra Webinar Series Vol 02 with Discoverme", "desc": "BA, Marcomm, PLES"},
+            {"date": "29", "title": "Ways of Working : New Office, New Habit", "desc": "HRBP Corporate, HRBP Commercial"},
             {"date": "30", "title": "Education Webinar with Asosiasi Psikolog Pendidikan Indonesia (APSI) DKI Jakarta", "desc": "BA, Marcomm, PLES"},
         ],
         "June": [
-            {"date": "15", "title": "June Newsletter “Cybernetic Leadership”", "desc": "BA, Marcomm, R&D"},
+            {"date": "15", "title": "June Newsletter “Cybernetic Leadership”", "desc": "BA, Marcomm, R&D Hafi"},
         ],
         "July": [
-            {"date": "15", "title": "July Newsletter “Karyawan Penurut vs Pembangkang”", "desc": "BA, Marcomm, R&D"},
+            {"date": "15", "title": "July Newsletter “Karyawan Penurut vs Pembangkang”", "desc": "BA, Marcomm, R&D Nisa"},
             {"date": "18", "title": "[TENTATIVE] Webinar with APIO Jawa Tengah", "desc": "BA, Marcomm, R&D"},
         ],
     }
