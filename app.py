@@ -509,7 +509,7 @@ elif page == "Faxtor 2026 Calendar":
             {"date": "1", "title": "Uji Coba FLSI - END : May", "desc": "R&D Fatiya"},
             {"date": "1", "title": "Penormaan FTPI 2.0 - END : May", "desc": "R&D Hafi"},
             {"date": "15", "title": "Launching Faxtor Newsletter", "desc": "BA, Marcomm"},
-        
+        ]
         "April": [
             {"date": "1", "title": "Uji Coba CDPI-SR", "desc": "R&D Diana"},
             {"date": "1", "title": "Workshop Item Writer FCAT-2", "desc": "R&D Afiya"},
