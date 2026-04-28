@@ -503,7 +503,7 @@ elif page == "Sales Forecaster":
 elif page == "Faxtor 2026 Calendar":
 
     st.title("Faxtor 2026 Calendar")
-    st.caption("Events marked with * may be subject to date changes.")
+    st.write("Events marked with * may be subject to date changes.")
 
     events = {
         "March": [
@@ -520,10 +520,10 @@ elif page == "Faxtor 2026 Calendar":
             {"date": "15", "title": "April Newsletter “Love Bombing di Kantor”", "desc": "BA, Marcomm, Prof. Aulia"},
             {"date": "18", "title": "Sumatra Webinar Series Vol 01 with APIO Sumatra Barat & APIO Lampung", "desc": "BA, Marcomm, PLES"},
             {"date": "21", "title": "Pelatihan dan Evaluasi Psikolog Mitra Faxtor Batch 1 - END : June", "desc": "PLES"},
-            {"date": "25", "title": "[START] Program Diskon May Day", "desc": "BA, BS"},
+            {"date": "25", "title": "Program Diskon May Day - END : May 15th", "desc": "BA, BS"},
         ],
         "May": [
-            {"date": "1", "title": "Pelatihan dan Evaluasi Biro Mitra Faxtor - END : July", "desc": "PLES"},
+            {"date": "1", "title": "*Pelatihan dan Evaluasi Biro Mitra Faxtor - END : July", "desc": "PLES"},
             {"date": "4", "title": "[START] Assessment Center Training", "desc": "All Division"},
             {"date": "15", "title": "[START] Program Biro Juara", "desc": "BA & BS"},
             {"date": "15", "title": "May Newsletter “Syarat Rekrutmen IPK 3.0”", "desc": "BA, Marcomm, R&D"},
@@ -533,17 +533,17 @@ elif page == "Faxtor 2026 Calendar":
             {"date": "30", "title": "Education Webinar with Asosiasi Psikolog Pendidikan Indonesia (APSI) DKI Jakarta", "desc": "BA, Marcomm, PLES"},
         ],
         "June": [
-            {"date": "1", "title": "Perpindahan Kantor Baru", "desc": "HRBP Corporate"},
-            {"date": "13", "title": "[TENTATIVE] Webinar Faxtor Mechanical Aptitute Test (FMAT)", "desc": "BA, Marcomm, PLES"},
-            {"date": "15", "title": "Pelatihan dan Evaluasi Psikolog Mitra Faxtor Batch 2 - END : August", "desc": "PLES"},
-            {"date": "15", "title": "Pelatihan dan Evaluasi Psikolog Mitra Faxtor Batch 3 - END : September", "desc": "PLES"},
+            {"date": "1", "title": "*Perpindahan Kantor Baru", "desc": "HRBP Corporate"},
+            {"date": "13", "title": "*Webinar Faxtor Mechanical Aptitute Test (FMAT)", "desc": "BA, Marcomm, PLES"},
+            {"date": "15", "title": "*Pelatihan dan Evaluasi Psikolog Mitra Faxtor Batch 2 - END : August", "desc": "PLES"},
+            {"date": "15", "title": "*Pelatihan dan Evaluasi Psikolog Mitra Faxtor Batch 3 - END : September", "desc": "PLES"},
             {"date": "15", "title": "June Newsletter “Cybernetic Leadership”", "desc": "BA, Marcomm, R&D Hafi"},
-            {"date": "22", "title": "Mid Year Performance Review to Head / Lead", "desc": "HRBP Corporate"},
+            {"date": "22", "title": "*Mid Year Performance Review to Head / Lead", "desc": "HRBP Corporate"},
         ],
         "July": [
-            {"date": "13", "title": "Mid Year Performance Review to All Employee - END : August", "desc": "HRBP Corporate"},
+            {"date": "13", "title": "*Mid Year Performance Review to All Employee - END : August", "desc": "HRBP Corporate"},
             {"date": "15", "title": "July Newsletter “Karyawan Penurut vs Pembangkang”", "desc": "BA, Marcomm, R&D Nisa"},
-            {"date": "18", "title": "[TENTATIVE] Webinar with APIO Jawa Tengah", "desc": "BA, Marcomm, PLES"},
+            {"date": "18", "title": "*Webinar with APIO Jawa Tengah", "desc": "BA, Marcomm, PLES"},
         ],
         "August": [
             {"date": "15", "title": "August Newsletter “Asesmen Asal Jadi, Apa Dampaknya?”", "desc": "BA, Marcomm, R&D Fatiya"},
