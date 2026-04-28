@@ -506,8 +506,14 @@ elif page == "Faxtor 2026 Calendar":
 
     events = {
         "April": [
+            {"date": "1", "title": "Uji Coba CDPI-SR", "desc": "R&D Diana"},
+            {"date": "1", "title": "Workshop Item Writer FCAT-2", "desc": "R&D Afiya"},
+            {"date": "1", "title": "Test Construction FCAT-2 - END : May", "desc": "R&D Afiya"},
+            {"date": "1", "title": "Training Master Excel - END : June", "desc": "R&D Fatiya"},
+            {"date": "4", "title": "Workshop Tester CDPI-SR", "desc": "R&D Diana"},
             {"date": "15", "title": "April Newsletter “Love Bombing di Kantor”", "desc": "BA, Marcomm, R&D"},
             {"date": "18", "title": "Sumatra Webinar Series Vol 01 with APIO Sumatra Barat & APIO Lampung", "desc": "BA, Marcomm, R&D"},
+            {"date": "21", "title": "Pelatihan dan Evaluasi Psikolog Mitra Faxtor Batch 1 - END : June", "desc": "BA, PLES"},
             {"date": "25", "title": "[START] Program Diskon May Day", "desc": "BA, BS"},
         ],
         "May": [
