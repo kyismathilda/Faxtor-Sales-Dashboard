@@ -503,6 +503,7 @@ elif page == "Sales Forecaster":
 elif page == "Faxtor 2026 Calendar":
 
     st.title("Faxtor 2026 Calendar")
+    st.caption("Events marked with * may be subject to date changes.")
 
     events = {
         "March": [
