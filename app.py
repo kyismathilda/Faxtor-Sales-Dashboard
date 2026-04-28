@@ -532,7 +532,7 @@ elif page == "Faxtor 2026 Calendar":
             {"date": "30", "title": "Education Webinar with Asosiasi Psikolog Pendidikan Indonesia (APSI) DKI Jakarta", "desc": "BA, Marcomm, PLES"},
         ],
         "June": [
-            {"date": "1", "title": "Perpindahan Kantor Baru", "desc": "HRBP Corporate"}
+            {"date": "1", "title": "Perpindahan Kantor Baru", "desc": "HRBP Corporate"},
             {"date": "13", "title": "[TENTATIVE] Webinar Faxtor Mechanical Aptitute Test (FMAT)", "desc": "BA, Marcomm, PLES"},
             {"date": "15", "title": "Pelatihan dan Evaluasi Psikolog Mitra Faxtor Batch 2 - END : August", "desc": "PLES"},
             {"date": "15", "title": "Pelatihan dan Evaluasi Psikolog Mitra Faxtor Batch 3 - END : September", "desc": "PLES"},
