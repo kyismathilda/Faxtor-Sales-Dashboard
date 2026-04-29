@@ -200,8 +200,8 @@ elif page == "Monthly Business Performance":
     data = {
         "January": {
             "gross": 104,
-            "gross_nominal": "Rp780.106.932",
-            "gross_insight": "We successfully surpassed the Gross Target by 104% (Rp780.106.932).",
+            "gross_nominal": "Rp780.201.044",
+            "gross_insight": "We successfully surpassed the Gross Target by 104% (Rp780.201.044).",
 
             "nett": 85,
             "nett_nominal": "Rp254.435.608",
@@ -225,15 +225,15 @@ elif page == "Monthly Business Performance":
 
         "February": {
             "gross": 133,
-            "gross_nominal": "Rp1.001.103.500",
-            "gross_insight": "We successfully surpass the Gross Target by 133% (Rp1,003,401,500).",
+            "gross_nominal": "Rp1.001.571.243",
+            "gross_insight": "We successfully surpass the Gross Target by 133% (Rp1.001.571.243).",
 
-            "nett": 66,
-            "nett_nominal": "Rp198.997.492",
+            "nett": 60,
+            "nett_nominal": "Rp179.777.293",
             "nett_insight": "Though we achieved Gross Target, minimum Nett Income is Rp300.000.000 / month, yet we have -34% shortfall due to high operational cost (Kimia Farma Project).",
 
             "growth_lm": 29,
-            "growth_lm_text": "vs Gross LM Jan’26 (Rp780.106.932)",
+            "growth_lm_text": "vs Gross LM Jan’26 (Rp780.201.044)",
 
             "growth_ytd": 238,
             "growth_ytd_text": "vs Gross YTD Feb’25 (Rp421.875.500)",
@@ -250,12 +250,12 @@ elif page == "Monthly Business Performance":
 
         "March": {
             "gross": 88,
-            "gross_nominal": "Rp657.941.500",
-            "gross_insight": "We partially surpass the Gross Target by 88% (Rp657.941.500).",
+            "gross_nominal": "Rp659.070.130",
+            "gross_insight": "We partially surpass the Gross Target by 88% (Rp659.070.130).",
 
-            "nett": 74,
-            "nett_nominal": "Rp222.281.620",
-            "nett_insight": "With minimum Nett Income is Rp300.000.000 / month, yet we have -26% shortfall due to high operational cost.",
+            "nett": 107,
+            "nett_nominal": "Rp321.413.421",
+            "nett_insight": "We successfully achieved minimum Nett Income in March",
 
             "growth_lm": -34,
             "growth_lm_text": "vs Gross LM Feb’26 (Rp1.001.103.500)",
