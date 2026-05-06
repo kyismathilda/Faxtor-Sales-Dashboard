@@ -263,7 +263,15 @@ elif page == "Monthly Business Performance":
             "growth_ytd": 87,
             "growth_ytd_text": "vs Gross YTD Mar’25 (Rp351.598.000)",
 
-            "client": 7,
+            "client": 7
+            "client_text":
+                "PP Dwi Bektiningsih - Bandung",
+                "PP Yoas Pasali - Bandung",
+                "Biro Psikologi Schema - Depok",
+                "PT. Astari Niagara (Acrylic Factory) - Tangerang",
+                "PP Siti Ulfa Hutabarat" - Medan",
+                "Thoriq Imamul Asykar" - Jakarta",
+                "LPK Amanat Negeri Sakura - Cianjur",
 
             "tools": {
                 "FCAT": 540, "FCATs": 610, "FCAT-R": 538, "FTPI": 1095,
