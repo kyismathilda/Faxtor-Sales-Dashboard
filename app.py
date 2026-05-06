@@ -340,6 +340,8 @@ elif page == "Monthly Business Performance":
    
     st.subheader("New Client")
     st.markdown(f"## {d['client']}")
+    for client in d["client_text"]:
+    st.markdown(f"- {client}")
 
     
     st.subheader("Tools Usage")
