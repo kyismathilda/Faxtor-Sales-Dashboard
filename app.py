@@ -272,7 +272,7 @@ elif page == "Monthly Business Performance":
                 "PP Siti Ulfa Hutabarat - Medan",
                 "Thoriq Imamul Asykar - Jakarta",
                 "LPK Amanat Negeri Sakura - Cianjur",
-            ]
+            ],
             "tools": {
                 "FCAT": 540, "FCATs": 610, "FCAT-R": 538, "FTPI": 1095,
                 "BIG FIVE": 939, "FEAST": 19357, "LSSI": 34, "IAMAR": 18,
