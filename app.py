@@ -270,7 +270,7 @@ elif page == "Monthly Business Performance":
                 "Biro Psikologi Schema - Depok",
                 "PT. Astari Niagara (Acrylic Factory) - Tangerang",
                 "PP Siti Ulfa Hutabarat - Medan",
-                "Thoriq Imamul Asykar" - Jakarta",
+                "Thoriq Imamul Asykar - Jakarta",
                 "LPK Amanat Negeri Sakura - Cianjur",
 
             "tools": {
