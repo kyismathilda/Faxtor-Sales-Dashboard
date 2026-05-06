@@ -338,13 +338,18 @@ elif page == "Monthly Business Performance":
         st.caption(d["growth_ytd_text"])
 
    
-st.subheader("New Client")
-st.markdown(f"## {d['client']}")
+    st.subheader("New Client")
+    st.markdown(f"## {d['client']}")
 
-st.subheader("Tools Usage")
+    # bullet point client
+    if "client_text" in d:
+        for client in d["client_text"]:
+            st.caption(f"• {client}")
 
-df = pd.DataFrame(list(d["tools"].items()), columns=["Tools", "Usage"])
-st.bar_chart(df.set_index("Tools"))
+    st.subheader("Tools Usage")
+
+    df = pd.DataFrame(list(d["tools"].items()), columns=["Tools", "Usage"])
+    st.bar_chart(df.set_index("Tools"))
 
 # PAGE 3
 elif page == "Expansion Tracker":
