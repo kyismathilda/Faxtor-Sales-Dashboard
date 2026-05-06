@@ -214,6 +214,26 @@ elif page == "Monthly Business Performance":
             "growth_ytd_text": "vs Gross YTD Jan’25 (Rp295.485.500)",
 
             "client": 17,
+            "client_text": [
+                "PT. Tilaka Nusa Teknologi - Jakarta",
+                "Paddy Indonesia - Bandung",
+                "Yayasan Wakaf Nurul Iman - Jakarta",
+                "Biro Catharsis - Bandung",
+                "PP Fitri Andriyani - Bandung",
+                "PT. Dimiha Kolaborasi Sukses - ",
+                "Integrita Global Sertifikat - Tangerang",
+                "Biro Waskita - Solo",
+                "Biro Optimal - Palembang",
+                "Biro Widya Talenta - Padang",
+                "LPT Dewantara - Yogyakarta",
+                "Biro Wharna Bhumi Academy - Bali",
+                "Biro Al Chair Consulting - Aceh",
+                "LPK Nobori Seiko Indonesia - Bekasi",
+                "PP Maria Angelisa Siregar - Banyumas",
+                "PP Nadia Ayu Safira - Bandung",
+                "PP Adri Kurniawan - Jakarta",
+                "Yayasan Himma Aliya - Bogor",
+            ],
 
             "tools": {
                 "FCAT": 581, "FCATs": 1171, "FCAT-R": 27, "FTPI": 1107,
@@ -239,7 +259,15 @@ elif page == "Monthly Business Performance":
             "growth_ytd_text": "vs Gross YTD Feb’25 (Rp421.875.500)",
 
             "client": 7,
-
+            "client_text": [
+                "PT Quadra Sinergi Consulting - Balikpapan",
+                "PP Habi Maulana - Sorong, Papua",
+                "PP Fredy Andri - Bandung",
+                "Bianglala Nanda - Bandung",
+                "PP Trifiana Tiodora - Jakarta",
+                "PP Juliana - Medan",
+                "PP Belladiena Azmi - Mojokerto",
+            ],
             "tools": {
                 "FCAT": 3305, "FCATs": 1755, "FCAT-R": 45, "FTPI": 1778,
                 "BIG FIVE": 989, "FEAST": 5285, "LSSI": 134, "IAMAR": 36,
