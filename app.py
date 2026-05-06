@@ -341,10 +341,10 @@ elif page == "Monthly Business Performance":
 st.subheader("New Client")
 st.markdown(f"## {d['client']}")
 
-    st.subheader("Tools Usage")
+st.subheader("Tools Usage")
 
-    df = pd.DataFrame(list(d["tools"].items()), columns=["Tools", "Usage"])
-    st.bar_chart(df.set_index("Tools"))
+df = pd.DataFrame(list(d["tools"].items()), columns=["Tools", "Usage"])
+st.bar_chart(df.set_index("Tools"))
 
 # PAGE 3
 elif page == "Expansion Tracker":
