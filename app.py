@@ -269,7 +269,7 @@ elif page == "Monthly Business Performance":
                 "PP Yoas Pasali - Bandung",
                 "Biro Psikologi Schema - Depok",
                 "PT. Astari Niagara (Acrylic Factory) - Tangerang",
-                "PP Siti Ulfa Hutabarat" - Medan",
+                "PP Siti Ulfa Hutabarat - Medan",
                 "Thoriq Imamul Asykar" - Jakarta",
                 "LPK Amanat Negeri Sakura - Cianjur",
 
