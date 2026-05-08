@@ -379,241 +379,33 @@ elif page == "Monthly Business Performance":
     df = pd.DataFrame(list(d["tools"].items()), columns=["Tools", "Usage"])
     st.bar_chart(df.set_index("Tools"))
 
-# PAGE NEW CLIENT TRACKER
+elif page == "Expansion Tracker":
 
-elif page == "New Client Tracker":
+st.title("Expansion Tracker")
 
-    import matplotlib.pyplot as plt
+total_all = sum(sum(prov.values()) for prov in expansion_data.values())
+st.metric("Total Indonesia Client", total_all)
 
-    st.title("New Client Tracker")
+for island in expansion_data:
 
-    # =========================
-    # DATA
-    # =========================
+    st.subheader(island)
 
-    total_new_client = {
-        "Jan": 17,
-        "Feb": 7,
-        "Mar": 7,
-        "Apr": 21
-    }
+    col1, col2 = st.columns([1,2])
 
-    total_new_client_sumatra = {
-        "Jan": 3,
-        "Feb": 1,
-        "Mar": 1,
-        "Apr": 0
-    }
+    with col1:
+        st.image(image_map[island], width=700)
 
-    monthly_active_user_2025 = {
-        "Jan": 125,
-        "Feb": 130,
-        "Mar": 115,
-        "Apr": 112,
-        "May": 133,
-        "Jun": 135,
-        "Jul": 138,
-        "Aug": 147,
-        "Sep": 154,
-        "Oct": 151,
-        "Nov": 132,
-        "Dec": 126
-    }
+    with col2:
+        table = pd.DataFrame(
+            list(expansion_data[island].items()),
+            columns=["Province", "Client"]
+        )
 
-    monthly_active_user_2026 = {
-        "Jan": 148,
-        "Feb": 137,
-        "Mar": 118,
-        "Apr": 178
-    }
+        total_client = table["Client"].sum()
+        percentage = (total_client/total_all)*100
 
-    sumatra_clients = {
-        "January": [
-            "Biro Optimal",
-            "Biro Widya Talenta",
-            "Al Chair Consulting"
-        ],
-
-        "February": [
-            "PP Juliana"
-        ],
-
-        "March": [
-            "PP Siti Ulfa Hutabarat"
-        ],
-
-        "April": [
-            "-"
-        ]
-    }
-
-    total_revenue = "Rp136,949,000"
-
-    # =========================
-    # TOTAL NEW CLIENT CHART
-    # =========================
-
-    st.subheader("Total New Client 2026")
-
-    fig1, ax1 = plt.subplots(figsize=(7,3))
-
-    ax1.bar(
-        list(total_new_client.keys()),
-        list(total_new_client.values()),
-        color="#67cfd4",
-        width=0.6
-    )
-
-    ax1.set_facecolor("#f7f8fc")
-    fig1.patch.set_facecolor("#f7f8fc")
-
-    ax1.spines['top'].set_visible(False)
-    ax1.spines['right'].set_visible(False)
-    ax1.spines['left'].set_visible(False)
-
-    ax1.grid(axis='y', alpha=0.15)
-
-    st.pyplot(fig1)
-
-    # =========================
-    # TOTAL REVENUE
-    # =========================
-
-    st.markdown("### Total Revenue")
-
-    st.markdown(
-        f"""
-        <h1 style='
-            color:#2c3250;
-            font-size:56px;
-            margin-top:-10px;
-        '>
-        {total_revenue}
-        </h1>
-        """,
-        unsafe_allow_html=True
-    )
-
-    st.divider()
-
-    # =========================
-    # MAU CHART
-    # =========================
-
-    st.subheader("Monthly Active User’s 2026")
-
-    months = [
-        "Jan","Feb","Mar","Apr",
-        "May","Jun","Jul","Aug",
-        "Sep","Oct","Nov","Dec"
-    ]
-
-    values_2025 = list(monthly_active_user_2025.values())
-
-    values_2026 = [
-        monthly_active_user_2026.get(m, 0)
-        for m in months
-    ]
-
-    x = range(len(months))
-
-    fig2, ax2 = plt.subplots(figsize=(12,4))
-
-    ax2.bar(
-        [i - 0.2 for i in x],
-        values_2025,
-        width=0.4,
-        label="2025",
-        color="#87c7eb"
-    )
-
-    ax2.bar(
-        [i + 0.2 for i in x],
-        values_2026,
-        width=0.4,
-        label="2026",
-        color="#f2b01e"
-    )
-
-    ax2.set_xticks(list(x))
-    ax2.set_xticklabels(months)
-
-    ax2.set_facecolor("#f7f8fc")
-    fig2.patch.set_facecolor("#f7f8fc")
-
-    ax2.spines['top'].set_visible(False)
-    ax2.spines['right'].set_visible(False)
-    ax2.spines['left'].set_visible(False)
-
-    ax2.grid(axis='y', alpha=0.15)
-
-    ax2.legend()
-
-    st.pyplot(fig2)
-
-    st.divider()
-
-    # =========================
-    # SUMATRA CHART
-    # =========================
-
-    st.subheader("Total New Client Sumatra 2026")
-
-    fig3, ax3 = plt.subplots(figsize=(7,3))
-
-    ax3.bar(
-        list(total_new_client_sumatra.keys()),
-        list(total_new_client_sumatra.values()),
-        color="#67cfd4",
-        width=0.6
-    )
-
-    ax3.set_facecolor("#f7f8fc")
-    fig3.patch.set_facecolor("#f7f8fc")
-
-    ax3.spines['top'].set_visible(False)
-    ax3.spines['right'].set_visible(False)
-    ax3.spines['left'].set_visible(False)
-
-    ax3.grid(axis='y', alpha=0.15)
-
-    st.pyplot(fig3)
-
-    # =========================
-    # CLIENT LIST
-    # =========================
-
-    st.subheader("New Client List")
-
-    col1, col2, col3, col4 = st.columns(4)
-
-    month_cols = [col1, col2, col3, col4]
-
-    for col, (month, clients) in zip(month_cols, sumatra_clients.items()):
-
-        with col:
-
-            st.markdown(f"### {month}")
-
-            for client in clients:
-
-                st.markdown(
-                    f"""
-                    <div style='
-                        background-color:white;
-                        padding:10px;
-                        border-radius:10px;
-                        margin-bottom:8px;
-                        font-size:14px;
-                        color:#2c3250;
-                        box-shadow:0px 2px 6px rgba(0,0,0,0.04);
-                    '>
-                    • {client}
-                    </div>
-                    """,
-                    unsafe_allow_html=True
-                )
-
+        st.metric(f"{island} Client", total_client, f"{percentage:.0f}% of total")
+        st.bar_chart(table.set_index("Province"))
 
 
 # PAGE 3
