@@ -69,6 +69,7 @@ with st.sidebar:
         [
             "Revenue & Profit Tracker",
             "Monthly Business Performance",
+            "New Client Tracker",
             "Expansion Tracker",
             "Royalty Calculator",
             "Sales Forecaster",
@@ -378,6 +379,196 @@ elif page == "Monthly Business Performance":
     df = pd.DataFrame(list(d["tools"].items()), columns=["Tools", "Usage"])
     st.bar_chart(df.set_index("Tools"))
 
+# PAGE NEW CLIENT TRACKER
+
+st.title("New Client Tracker")
+
+# =====================================================
+# MONTH ORDER
+# =====================================================
+
+month_order = [
+    "Jan", "Feb", "Mar", "Apr",
+    "May", "Jun", "Jul", "Aug",
+    "Sep", "Oct", "Nov", "Dec"
+]
+
+# =====================================================
+# TOTAL NEW CLIENT DATA
+# =====================================================
+
+new_client_df = pd.DataFrame({
+    "Month": month_order,
+    "Client": [17, 7, 7, 21, 0, 0, 0, 0, 0, 0, 0, 0]
+})
+
+new_client_df["Month"] = pd.Categorical(
+    new_client_df["Month"],
+    categories=month_order,
+    ordered=True
+)
+
+new_client_df = new_client_df.sort_values("Month")
+new_client_df = new_client_df.set_index("Month")
+
+# =====================================================
+# SUMATRA CLIENT DATA
+# =====================================================
+
+sumatra_df = pd.DataFrame({
+    "Month": month_order,
+    "Client": [3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+})
+
+sumatra_df["Month"] = pd.Categorical(
+    sumatra_df["Month"],
+    categories=month_order,
+    ordered=True
+)
+
+sumatra_df = sumatra_df.sort_values("Month")
+sumatra_df = sumatra_df.set_index("Month")
+
+# =====================================================
+# MAU DATA
+# =====================================================
+
+mau_df = pd.DataFrame({
+
+    "Month": month_order,
+
+    "2025": [
+        125, 130, 115, 112,
+        133, 135, 138, 147,
+        154, 151, 132, 126
+    ],
+
+    "2026": [
+        148, 137, 118, 178,
+        0, 0, 0, 0,
+        0, 0, 0, 0
+    ]
+})
+
+mau_df["Month"] = pd.Categorical(
+    mau_df["Month"],
+    categories=month_order,
+    ordered=True
+)
+
+mau_df = mau_df.sort_values("Month")
+mau_df = mau_df.set_index("Month")
+
+# =====================================================
+# CLIENT LIST
+# =====================================================
+
+sumatra_clients = {
+
+    "January": [
+        "Biro Optimal",
+        "Biro Widya Talenta",
+        "Al Chair Consulting"
+    ],
+
+    "February": [
+        "PP Juliana"
+    ],
+
+    "March": [
+        "PP Siti Ulfa Hutabarat"
+    ],
+
+    "April": [
+        "-"
+    ]
+}
+
+# =====================================================
+# TOTAL NEW CLIENT CHART
+# =====================================================
+
+st.subheader("Total New Client 2026")
+
+st.bar_chart(new_client_df)
+
+# =====================================================
+# TOTAL REVENUE
+# =====================================================
+
+st.markdown("### Total Revenue")
+
+st.markdown(
+    """
+    <h1 style="
+        color:#2c3250;
+        font-size:52px;
+        margin-top:-15px;
+    ">
+        Rp136,949,000
+    </h1>
+    """,
+    unsafe_allow_html=True
+)
+
+st.divider()
+
+# =====================================================
+# MONTHLY ACTIVE USER
+# =====================================================
+
+st.subheader("Monthly Active User’s 2026")
+
+st.bar_chart(mau_df)
+
+st.divider()
+
+# =====================================================
+# TOTAL NEW CLIENT SUMATRA
+# =====================================================
+
+st.subheader("Total New Client Sumatra 2026")
+
+st.bar_chart(sumatra_df)
+
+st.divider()
+
+# =====================================================
+# CLIENT LIST
+# =====================================================
+
+st.subheader("New Client List")
+
+col1, col2, col3, col4 = st.columns(4)
+
+with col1:
+
+    st.markdown("### January")
+
+    for client in sumatra_clients["January"]:
+        st.markdown(f"• {client}")
+
+with col2:
+
+    st.markdown("### February")
+
+    for client in sumatra_clients["February"]:
+        st.markdown(f"• {client}")
+
+with col3:
+
+    st.markdown("### March")
+
+    for client in sumatra_clients["March"]:
+        st.markdown(f"• {client}")
+
+with col4:
+
+    st.markdown("### April")
+
+    for client in sumatra_clients["April"]:
+        st.markdown(f"• {client}")
+        
 # PAGE EXPANSION TRACKER
 elif page == "Expansion Tracker":
 
