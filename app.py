@@ -498,20 +498,8 @@ elif page ==  "New Client Tracker":
 # TOTAL REVENUE
 # =====================================================
 
-    st.markdown("### Total Revenue")
-
-    st.markdown(
-        """
-        <h1 style="
-            color:#2c3250;
-            font-size:30px;
-            margin-top:-15px;
-        ">
-            Rp136,949,000
-        </h1>
-        """,
-        unsafe_allow_html=True
-    )
+    new_client_revenue=136949000
+    st.metric("Total New Client Revenue", f"Rp{new_client_revenue:,}")
 
 
 # =====================================================
