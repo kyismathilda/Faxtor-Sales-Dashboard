@@ -161,6 +161,43 @@ logo_map = {
     "PII": "PII.png",
 }
 
+new_client_data = {
+    "total_new_client": {
+        "Jan": 17,
+        "Feb": 7,
+        "Mar": 7,
+        "Apr": 21
+    },
+
+    "total_new_client_sumatra": {
+        "Jan": 3,
+        "Feb": 1,
+        "Mar": 1,
+        "Apr": 0
+    },
+
+    "sumatra_detail": {
+        "Jan": [
+            "Biro Optimal",
+            "Biro Widya Talenta",
+            "Al Chair Consulting"
+        ],
+
+        "Feb": [
+            "PP Juliana"
+        ],
+
+        "Mar": [
+            "PP Siti Ulfa Hutabarat"
+        ],
+
+        "Apr": [
+            "-"
+        ]
+    },
+
+    "total_revenue": 136949000
+}
 
 # PAGE 1
 
@@ -379,6 +416,141 @@ elif page == "Monthly Business Performance":
     df = pd.DataFrame(list(d["tools"].items()), columns=["Tools", "Usage"])
     st.bar_chart(df.set_index("Tools"))
 
+elif page == "New Client Tracker":
+
+    import matplotlib.pyplot as plt
+
+    st.title("New Client Tracker")
+
+    # =========================
+    # TOTAL NEW CLIENT CHART
+    # =========================
+
+    months = list(new_client_data["total_new_client"].keys())
+    values = list(new_client_data["total_new_client"].values())
+
+    fig, ax = plt.subplots(figsize=(8,3))
+
+    ax.bar(months, values, color="#67d4d8", width=0.6)
+
+    ax.spines[['top','right','left']].set_visible(False)
+
+    ax.grid(axis='y', alpha=0.2)
+
+    ax.set_title("Total New Client 2026",
+                 fontsize=20,
+                 loc='left',
+                 color="#2b335b")
+
+    st.pyplot(fig)
+
+    # =========================
+    # TOTAL REVENUE
+    # =========================
+
+    st.markdown("### Total Revenue")
+    st.markdown(
+        f"""
+        <h1 style='color:#2b335b;'>
+        Rp{new_client_data['total_revenue']:,.0f}
+        </h1>
+        """,
+        unsafe_allow_html=True
+    )
+
+    st.divider()
+
+    # =========================
+    # MAU CHART
+    # =========================
+
+    mau_2025 = [125,130,115,112,133,135,138,147,154,151,132,126]
+    mau_2026 = [148,137,118,178]
+
+    months_full = [
+        "Jan","Feb","Mar","Apr",
+        "May","Jun","Jul","Aug",
+        "Sep","Oct","Nov","Dec"
+    ]
+
+    fig2, ax2 = plt.subplots(figsize=(12,4))
+
+    ax2.bar(months_full,
+            mau_2025,
+            color="#8fd4f5",
+            label="2025")
+
+    ax2.bar(months_full[:4],
+            mau_2026,
+            color="#f4b321",
+            label="2026")
+
+    ax2.spines[['top','right','left']].set_visible(False)
+
+    ax2.grid(axis='y', alpha=0.2)
+
+    ax2.legend(frameon=False)
+
+    ax2.set_title("Monthly Active User 2026",
+                  fontsize=24,
+                  fontweight='bold')
+
+    st.pyplot(fig2)
+
+    st.divider()
+
+    # =========================
+    # SUMATRA CLIENT SECTION
+    # =========================
+
+    st.subheader("Total New Client Sumatra 2026")
+
+    sumatra_values = list(
+        new_client_data["total_new_client_sumatra"].values()
+    )
+
+    fig3, ax3 = plt.subplots(figsize=(8,3))
+
+    ax3.bar(months,
+            sumatra_values,
+            color="#67d4d8",
+            width=0.6)
+
+    ax3.spines[['top','right','left']].set_visible(False)
+
+    ax3.grid(axis='y', alpha=0.2)
+
+    st.pyplot(fig3)
+
+    # =========================
+    # CLIENT DETAILS
+    # =========================
+
+    col1, col2, col3, col4 = st.columns(4)
+
+    month_list = ["Jan", "Feb", "Mar", "Apr"]
+
+    cols = [col1, col2, col3, col4]
+
+    month_name = {
+        "Jan":"Januari",
+        "Feb":"Februari",
+        "Mar":"Maret",
+        "Apr":"April"
+    }
+
+    for i, m in enumerate(month_list):
+
+        with cols[i]:
+
+            st.markdown(
+                f"### {month_name[m]}"
+            )
+
+            for client in new_client_data["sumatra_detail"][m]:
+
+                st.markdown(f"• {client}")
+                
 # PAGE 3
 elif page == "Expansion Tracker":
 
