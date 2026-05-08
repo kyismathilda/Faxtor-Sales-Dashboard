@@ -381,7 +381,7 @@ elif page == "Monthly Business Performance":
 
 # PAGE NEW CLIENT TRACKER
 
-elif page ==  "New Client Tracker",
+elif page ==  "New Client Tracker":
 
     st.title("New Client Tracker")
 
