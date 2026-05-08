@@ -69,6 +69,7 @@ with st.sidebar:
         [
             "Revenue & Profit Tracker",
             "Monthly Business Performance",
+            "New Client Tracker",
             "Expansion Tracker",
             "Royalty Calculator",
             "Sales Forecaster",
