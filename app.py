@@ -504,7 +504,7 @@ elif page ==  "New Client Tracker":
         """
         <h1 style="
             color:#2c3250;
-            font-size:52px;
+            font-size:30px;
             margin-top:-15px;
         ">
             Rp136,949,000
@@ -513,7 +513,6 @@ elif page ==  "New Client Tracker":
         unsafe_allow_html=True
     )
 
-    st.divider()
 
 # =====================================================
 # MONTHLY ACTIVE USER
@@ -523,7 +522,6 @@ elif page ==  "New Client Tracker":
 
     st.bar_chart(mau_df)
 
-    st.divider()
 
 # =====================================================
 # TOTAL NEW CLIENT SUMATRA
@@ -533,7 +531,6 @@ elif page ==  "New Client Tracker":
 
     st.bar_chart(sumatra_df)
 
-    st.divider()
 
 # =====================================================
 # CLIENT LIST
