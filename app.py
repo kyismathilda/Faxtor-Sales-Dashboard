@@ -379,18 +379,19 @@ elif page == "Monthly Business Performance":
     df = pd.DataFrame(list(d["tools"].items()), columns=["Tools", "Usage"])
     st.bar_chart(df.set_index("Tools"))
 
+# PAGE EXPANSION TRACKER
 elif page == "Expansion Tracker":
 
-st.title("Expansion Tracker")
+    st.title("Expansion Tracker")
 
-total_all = sum(sum(prov.values()) for prov in expansion_data.values())
-st.metric("Total Indonesia Client", total_all)
+    total_all = sum(sum(prov.values()) for prov in expansion_data.values())
+    st.metric("Total Indonesia Client", total_all)
 
-for island in expansion_data:
+    for island in expansion_data:
 
-    st.subheader(island)
+        st.subheader(island)
 
-    col1, col2 = st.columns([1,2])
+        col1, col2 = st.columns([1,2])
 
     with col1:
         st.image(image_map[island], width=700)
