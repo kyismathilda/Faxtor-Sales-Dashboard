@@ -421,136 +421,223 @@ elif page == "New Client Tracker":
 
     import matplotlib.pyplot as plt
 
-    st.title("New Client Tracker")
+        st.title("Expansion Tracker")
 
-    # =========================
+    # =====================================================
+    # DATA
+    # =====================================================
+
+    total_new_client = {
+        "Jan": 17,
+        "Feb": 7,
+        "Mar": 7,
+        "Apr": 21
+    }
+
+    total_revenue = 136949000
+
+    total_new_client_sumatra = {
+        "Jan": 3,
+        "Feb": 1,
+        "Mar": 1,
+        "Apr": 0
+    }
+
+    monthly_clients = {
+        "Januari": [
+            "Biro Optimal",
+            "Biro Widya Talenta",
+            "Al Chair Consulting"
+        ],
+
+        "Februari": [
+            "PP Juliana"
+        ],
+
+        "Maret": [
+            "PP Siti Ulfa Hutabarat"
+        ],
+
+        "April": [
+            "-"
+        ]
+    }
+
+    tools_usage = {
+        "BIG FIVE": 524,
+        "EII": 98,
+        "FCAT": 581,
+        "FCAT-R": 27,
+        "FCATs": 1171,
+        "FEAST": 3403,
+        "FTPI": 1107,
+        "GWS": 3,
+        "IAMAR": 48,
+        "INCRITS": 45,
+        "LSSI": 262,
+        "MSDQ": 28,
+        "MSSQ": 27,
+        "OPTI": 117,
+        "PII": 98
+    }
+
+    # =====================================================
     # TOTAL NEW CLIENT CHART
-    # =========================
+    # =====================================================
 
-    months = list(new_client_data["total_new_client"].keys())
-    values = list(new_client_data["total_new_client"].values())
+    st.markdown("## Total New Client 2026")
 
-    fig, ax = plt.subplots(figsize=(8,3))
+    fig, ax = plt.subplots(figsize=(10, 3.5))
 
-    ax.bar(months, values, color="#67d4d8", width=0.6)
+    months = list(total_new_client.keys())
+    values = list(total_new_client.values())
 
-    ax.spines[['top','right','left']].set_visible(False)
+    ax.bar(
+        months,
+        values,
+        color="#69d2d6",
+        width=0.6
+    )
 
-    ax.grid(axis='y', alpha=0.2)
+    # STYLE
+    ax.set_facecolor("#f7f8fc")
+    fig.patch.set_facecolor("#f7f8fc")
 
-    ax.set_title("Total New Client 2026",
-                 fontsize=20,
-                 loc='left',
-                 color="#2b335b")
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    ax.spines['left'].set_visible(False)
+
+    ax.grid(axis='y', alpha=0.15)
+
+    # FONT
+    ax.tick_params(axis='x', labelsize=10)
+    ax.tick_params(axis='y', labelsize=9)
 
     st.pyplot(fig)
 
-    # =========================
+    # =====================================================
     # TOTAL REVENUE
-    # =========================
+    # =====================================================
 
     st.markdown("### Total Revenue")
+
     st.markdown(
         f"""
-        <h1 style='color:#2b335b;'>
-        Rp{new_client_data['total_revenue']:,.0f}
+        <h1 style='
+            color:#2c3250;
+            font-size:52px;
+            margin-top:-10px;
+            font-weight:700;
+        '>
+        Rp{total_revenue:,}
         </h1>
         """,
         unsafe_allow_html=True
     )
 
-    st.divider()
+    # =====================================================
+    # TOOLS USAGE
+    # =====================================================
 
-    # =========================
-    # MAU CHART
-    # =========================
+    st.markdown("## Tools Usage")
 
-    mau_2025 = [125,130,115,112,133,135,138,147,154,151,132,126]
-    mau_2026 = [148,137,118,178]
+    fig2, ax2 = plt.subplots(figsize=(12, 4))
 
-    months_full = [
-        "Jan","Feb","Mar","Apr",
-        "May","Jun","Jul","Aug",
-        "Sep","Oct","Nov","Dec"
-    ]
+    tools = list(tools_usage.keys())
+    usage = list(tools_usage.values())
 
-    fig2, ax2 = plt.subplots(figsize=(12,4))
+    ax2.bar(
+        tools,
+        usage,
+        color="#1670c9",
+        width=0.6
+    )
 
-    ax2.bar(months_full,
-            mau_2025,
-            color="#8fd4f5",
-            label="2025")
+    # STYLE
+    ax2.set_facecolor("#f7f8fc")
+    fig2.patch.set_facecolor("#f7f8fc")
 
-    ax2.bar(months_full[:4],
-            mau_2026,
-            color="#f4b321",
-            label="2026")
+    ax2.spines['top'].set_visible(False)
+    ax2.spines['right'].set_visible(False)
+    ax2.spines['left'].set_visible(False)
 
-    ax2.spines[['top','right','left']].set_visible(False)
+    ax2.grid(axis='y', alpha=0.15)
 
-    ax2.grid(axis='y', alpha=0.2)
-
-    ax2.legend(frameon=False)
-
-    ax2.set_title("Monthly Active User 2026",
-                  fontsize=24,
-                  fontweight='bold')
+    ax2.tick_params(axis='x', rotation=90, labelsize=9)
+    ax2.tick_params(axis='y', labelsize=9)
 
     st.pyplot(fig2)
 
-    st.divider()
+    # =====================================================
+    # SUMATRA CLIENT
+    # =====================================================
 
-    # =========================
-    # SUMATRA CLIENT SECTION
-    # =========================
+    st.markdown("## Total New Client Sumatra 2026")
 
-    st.subheader("Total New Client Sumatra 2026")
+    fig3, ax3 = plt.subplots(figsize=(10, 3))
 
-    sumatra_values = list(
-        new_client_data["total_new_client_sumatra"].values()
+    sumatra_month = list(total_new_client_sumatra.keys())
+    sumatra_value = list(total_new_client_sumatra.values())
+
+    ax3.bar(
+        sumatra_month,
+        sumatra_value,
+        color="#69d2d6",
+        width=0.6
     )
 
-    fig3, ax3 = plt.subplots(figsize=(8,3))
+    # STYLE
+    ax3.set_facecolor("#f7f8fc")
+    fig3.patch.set_facecolor("#f7f8fc")
 
-    ax3.bar(months,
-            sumatra_values,
-            color="#67d4d8",
-            width=0.6)
+    ax3.spines['top'].set_visible(False)
+    ax3.spines['right'].set_visible(False)
+    ax3.spines['left'].set_visible(False)
 
-    ax3.spines[['top','right','left']].set_visible(False)
+    ax3.grid(axis='y', alpha=0.15)
 
-    ax3.grid(axis='y', alpha=0.2)
+    ax3.tick_params(axis='x', labelsize=10)
+    ax3.tick_params(axis='y', labelsize=9)
 
     st.pyplot(fig3)
 
-    # =========================
-    # CLIENT DETAILS
-    # =========================
+    # =====================================================
+    # CLIENT LIST
+    # =====================================================
 
-    col1, col2, col3, col4 = st.columns(4)
+    st.markdown("## New Clients List")
 
-    month_list = ["Jan", "Feb", "Mar", "Apr"]
+    cols = st.columns(4)
 
-    cols = [col1, col2, col3, col4]
+    month_names = list(monthly_clients.keys())
 
-    month_name = {
-        "Jan":"Januari",
-        "Feb":"Februari",
-        "Mar":"Maret",
-        "Apr":"April"
-    }
+    for idx, month in enumerate(month_names):
 
-    for i, m in enumerate(month_list):
-
-        with cols[i]:
+        with cols[idx]:
 
             st.markdown(
-                f"### {month_name[m]}"
+                f"""
+                <h3 style='color:#2c3250'>
+                {month}
+                </h3>
+                """,
+                unsafe_allow_html=True
             )
 
-            for client in new_client_data["sumatra_detail"][m]:
+            for client in monthly_clients[month]:
 
-                st.markdown(f"• {client}")
+                st.markdown(
+                    f"""
+                    <div style='
+                        color:#2c3250;
+                        font-size:16px;
+                        margin-bottom:8px;
+                    '>
+                    • {client}
+                    </div>
+                    """,
+                    unsafe_allow_html=True
+                )
                 
 # PAGE 3
 elif page == "Expansion Tracker":
