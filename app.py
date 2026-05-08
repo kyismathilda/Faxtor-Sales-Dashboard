@@ -536,7 +536,7 @@ elif page ==  "New Client Tracker":
 # CLIENT LIST
 # =====================================================
 
-    st.subheader("New Client List")
+    st.subheader("New Client Sumatra List")
 
     col1, col2, col3, col4 = st.columns(4)
 
