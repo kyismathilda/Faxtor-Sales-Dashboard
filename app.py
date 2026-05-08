@@ -506,7 +506,7 @@ elif page ==  "New Client Tracker":
 # MONTHLY ACTIVE USER
 # =====================================================
 
-    st.subheader("Monthly Active User’s 2026")
+    st.subheader("Monthly Active User 2026")
 
     st.bar_chart(mau_df)
 
