@@ -70,7 +70,6 @@ with st.sidebar:
             "Revenue & Profit Tracker",
             "Monthly Business Performance",
             "Expansion Tracker",
-            "New Client Tracker",
             "Royalty Calculator",
             "Sales Forecaster",
             "Faxtor 2026 Calendar"
