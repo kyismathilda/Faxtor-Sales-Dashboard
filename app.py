@@ -392,20 +392,20 @@ elif page == "Expansion Tracker":
 
         col1, col2 = st.columns([1,2])
 
-    with col1:
-        st.image(image_map[island], width=700)
+        with col1:
+            st.image(image_map[island], width=700)
 
-    with col2:
-        table = pd.DataFrame(
-            list(expansion_data[island].items()),
-            columns=["Province", "Client"]
+        with col2:
+            table = pd.DataFrame(
+                list(expansion_data[island].items()),
+                columns=["Province", "Client"]
         )
 
-        total_client = table["Client"].sum()
-        percentage = (total_client/total_all)*100
+            total_client = table["Client"].sum()
+            percentage = (total_client/total_all)*100
 
-        st.metric(f"{island} Client", total_client, f"{percentage:.0f}% of total")
-        st.bar_chart(table.set_index("Province"))
+            st.metric(f"{island} Client", total_client, f"{percentage:.0f}% of total")
+            st.bar_chart(table.set_index("Province"))
 
 
 # PAGE 3
