@@ -417,11 +417,12 @@ elif page == "Monthly Business Performance":
     df = pd.DataFrame(list(d["tools"].items()), columns=["Tools", "Usage"])
     st.bar_chart(df.set_index("Tools"))
 
+# PAGE 4
 elif page == "New Client Tracker":
 
     import matplotlib.pyplot as plt
 
-        st.title("Expansion Tracker")
+    st.title("New Client Tracker")
 
     # =====================================================
     # DATA
@@ -638,7 +639,7 @@ elif page == "New Client Tracker":
                     """,
                     unsafe_allow_html=True
                 )
-                
+
 # PAGE 3
 elif page == "Expansion Tracker":
 
