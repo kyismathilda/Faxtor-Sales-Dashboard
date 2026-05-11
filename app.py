@@ -722,8 +722,6 @@ elif page == "Faxtor 2026 Calendar":
     import json
     import streamlit.components.v1 as components
 
-    # Semua string pakai ASCII biasa — tidak ada unicode escape atau emoji
-    # agar tidak terjadi UnicodeEncodeError di Streamlit Cloud
     events_data = {
         "Jan": [],
         "Feb": [],
@@ -783,7 +781,7 @@ elif page == "Faxtor 2026 Calendar":
         ],
     }
 
-    # json.dumps dengan ensure_ascii=True agar 100% aman di semua environment
+    # json.dumps 
     events_json = json.dumps(events_data, ensure_ascii=True)
 
     calendar_html = (
@@ -830,8 +828,7 @@ elif page == "Faxtor 2026 Calendar":
         ".event-desc { font-size: 11px; color: #9ca3af; margin-top: 4px; }"
         ".divider { height: 1px; background: #f3f4f6; margin: 3px 0 10px 0; }"
         "</style></head><body>"
-        "<p class='subtitle'>Klik bulan untuk melihat jadwal event. "
-        "Events marked with * may be subject to date changes.</p>"
+        "<p class='subtitle'>Click month to see detailed schedule. "
         "<div class='layout'>"
         "<div class='month-panel'><div class='month-grid' id='grid'></div></div>"
         "<div class='events-panel' id='panel'></div>"
