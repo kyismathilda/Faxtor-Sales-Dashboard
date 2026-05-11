@@ -722,209 +722,166 @@ elif page == "Faxtor 2026 Calendar":
     import json
     import streamlit.components.v1 as components
 
+    # Semua string pakai ASCII biasa — tidak ada unicode escape atau emoji
+    # agar tidak terjadi UnicodeEncodeError di Streamlit Cloud
     events_data = {
         "Jan": [],
         "Feb": [],
         "Mar": [
-            {"date": "1",  "title": "Uji Coba FLSI",                                               "end": "May",       "tentative": False, "desc": "R&D Fatiya"},
-            {"date": "1",  "title": "Penormaan FTPI 2.0",                                           "end": "May",       "tentative": False, "desc": "R&D Hafi"},
-            {"date": "15", "title": "Launching Faxtor Newsletter",                                   "end": None,        "tentative": False, "desc": "BA, Marcomm"},
+            {"date": "1",  "title": "Uji Coba FLSI",            "end": "May",  "tentative": False, "desc": "R&D Fatiya"},
+            {"date": "1",  "title": "Penormaan FTPI 2.0",        "end": "May",  "tentative": False, "desc": "R&D Hafi"},
+            {"date": "15", "title": "Launching Faxtor Newsletter","end": "",     "tentative": False, "desc": "BA, Marcomm"},
         ],
         "Apr": [
-            {"date": "1",  "title": "Uji Coba CDPI-SR",                                             "end": None,        "tentative": False, "desc": "R&D Diana"},
-            {"date": "1",  "title": "Workshop Item Writer FCAT-2",                                   "end": None,        "tentative": False, "desc": "R&D Afiya"},
-            {"date": "1",  "title": "Test Construction FCAT-2",                                      "end": "May",       "tentative": False, "desc": "R&D Afiya"},
-            {"date": "1",  "title": "Training Master Excel",                                         "end": "June",      "tentative": False, "desc": "R&D Fatiya"},
-            {"date": "4",  "title": "Workshop Tester CDPI-SR",                                       "end": None,        "tentative": False, "desc": "R&D Diana"},
-            {"date": "15", "title": "April Newsletter \u201cLove Bombing di Kantor\u201d",           "end": None,        "tentative": False, "desc": "BA, Marcomm, Prof. Aulia"},
-            {"date": "18", "title": "Sumatra Webinar Series Vol 01",                                 "end": None,        "tentative": False, "desc": "BA, Marcomm, PLES"},
-            {"date": "21", "title": "Pelatihan dan Evaluasi Psikolog Mitra Batch 1",                 "end": "June",      "tentative": False, "desc": "PLES"},
-            {"date": "25", "title": "Program Diskon May Day",                                        "end": "May 15",    "tentative": False, "desc": "BA, BS"},
+            {"date": "1",  "title": "Uji Coba CDPI-SR",                          "end": "",         "tentative": False, "desc": "R&D Diana"},
+            {"date": "1",  "title": "Workshop Item Writer FCAT-2",                "end": "",         "tentative": False, "desc": "R&D Afiya"},
+            {"date": "1",  "title": "Test Construction FCAT-2",                   "end": "May",      "tentative": False, "desc": "R&D Afiya"},
+            {"date": "1",  "title": "Training Master Excel",                      "end": "June",     "tentative": False, "desc": "R&D Fatiya"},
+            {"date": "4",  "title": "Workshop Tester CDPI-SR",                    "end": "",         "tentative": False, "desc": "R&D Diana"},
+            {"date": "15", "title": "April Newsletter - Love Bombing di Kantor",  "end": "",         "tentative": False, "desc": "BA, Marcomm, Prof. Aulia"},
+            {"date": "18", "title": "Sumatra Webinar Series Vol 01",               "end": "",         "tentative": False, "desc": "BA, Marcomm, PLES"},
+            {"date": "21", "title": "Pelatihan dan Evaluasi Psikolog Mitra Batch 1","end": "June",   "tentative": False, "desc": "PLES"},
+            {"date": "25", "title": "Program Diskon May Day",                      "end": "May 15",  "tentative": False, "desc": "BA, BS"},
         ],
         "May": [
-            {"date": "1",  "title": "Pelatihan dan Evaluasi Biro Mitra Faxtor",                      "end": "July",      "tentative": True,  "desc": "PLES"},
-            {"date": "4",  "title": "Assessment Center Training",                                    "end": None,        "tentative": False, "desc": "All Division"},
-            {"date": "15", "title": "Program Biro Juara",                                            "end": None,        "tentative": False, "desc": "BA & BS"},
-            {"date": "15", "title": "May Newsletter \u201cSyarat Rekrutmen IPK 3.0\u201d",           "end": None,        "tentative": False, "desc": "BA, Marcomm, R&D"},
-            {"date": "16", "title": "Sumatra Webinar Series Vol 02 with Discoverme",                 "end": None,        "tentative": False, "desc": "BA, Marcomm, PLES"},
-            {"date": "18", "title": "Faxtor Berkurban 2026",                                         "end": None,        "tentative": False, "desc": "HRBP Corporate, HRBP Commercial"},
-            {"date": "29", "title": "Ways of Working: New Office, New Habit",                        "end": None,        "tentative": False, "desc": "HRBP Corporate, HRBP Commercial"},
-            {"date": "30", "title": "Education Webinar with APSI DKI Jakarta",                       "end": None,        "tentative": False, "desc": "BA, Marcomm, PLES"},
+            {"date": "1",  "title": "Pelatihan dan Evaluasi Biro Mitra Faxtor",   "end": "July",     "tentative": True,  "desc": "PLES"},
+            {"date": "4",  "title": "Assessment Center Training",                  "end": "",         "tentative": False, "desc": "All Division"},
+            {"date": "15", "title": "Program Biro Juara",                          "end": "",         "tentative": False, "desc": "BA & BS"},
+            {"date": "15", "title": "May Newsletter - Syarat Rekrutmen IPK 3.0",   "end": "",         "tentative": False, "desc": "BA, Marcomm, R&D"},
+            {"date": "16", "title": "Sumatra Webinar Series Vol 02 - Discoverme",  "end": "",         "tentative": False, "desc": "BA, Marcomm, PLES"},
+            {"date": "18", "title": "Faxtor Berkurban 2026",                       "end": "",         "tentative": False, "desc": "HRBP Corporate, HRBP Commercial"},
+            {"date": "29", "title": "Ways of Working: New Office, New Habit",      "end": "",         "tentative": False, "desc": "HRBP Corporate, HRBP Commercial"},
+            {"date": "30", "title": "Education Webinar with APSI DKI Jakarta",     "end": "",         "tentative": False, "desc": "BA, Marcomm, PLES"},
         ],
         "Jun": [
-            {"date": "1",  "title": "Perpindahan Kantor Baru",                                       "end": None,        "tentative": True,  "desc": "HRBP Corporate"},
-            {"date": "13", "title": "Webinar Faxtor Mechanical Aptitude Test (FMAT)",                "end": None,        "tentative": True,  "desc": "BA, Marcomm, PLES"},
-            {"date": "15", "title": "Pelatihan dan Evaluasi Psikolog Mitra Batch 2",                 "end": "August",    "tentative": True,  "desc": "PLES"},
-            {"date": "15", "title": "Pelatihan dan Evaluasi Psikolog Mitra Batch 3",                 "end": "September", "tentative": True,  "desc": "PLES"},
-            {"date": "15", "title": "June Newsletter \u201cCybernetic Leadership\u201d",             "end": None,        "tentative": False, "desc": "BA, Marcomm, R&D Hafi"},
-            {"date": "22", "title": "Mid Year Performance Review to Head / Lead",                    "end": None,        "tentative": True,  "desc": "HRBP Corporate"},
+            {"date": "1",  "title": "Perpindahan Kantor Baru",                     "end": "",         "tentative": True,  "desc": "HRBP Corporate"},
+            {"date": "13", "title": "Webinar Faxtor FMAT",                          "end": "",         "tentative": True,  "desc": "BA, Marcomm, PLES"},
+            {"date": "15", "title": "Pelatihan dan Evaluasi Psikolog Mitra Batch 2","end": "August",  "tentative": True,  "desc": "PLES"},
+            {"date": "15", "title": "Pelatihan dan Evaluasi Psikolog Mitra Batch 3","end": "September","tentative": True, "desc": "PLES"},
+            {"date": "15", "title": "June Newsletter - Cybernetic Leadership",      "end": "",         "tentative": False, "desc": "BA, Marcomm, R&D Hafi"},
+            {"date": "22", "title": "Mid Year Performance Review - Head / Lead",    "end": "",         "tentative": True,  "desc": "HRBP Corporate"},
         ],
         "Jul": [
-            {"date": "13", "title": "Mid Year Performance Review to All Employee",                   "end": "August",    "tentative": True,  "desc": "HRBP Corporate"},
-            {"date": "15", "title": "July Newsletter \u201cKaryawan Penurut vs Pembangkang\u201d",   "end": None,        "tentative": False, "desc": "BA, Marcomm, R&D Nisa"},
-            {"date": "18", "title": "Webinar with APIO Jawa Tengah",                                 "end": None,        "tentative": True,  "desc": "BA, Marcomm, PLES"},
+            {"date": "13", "title": "Mid Year Performance Review - All Employee",   "end": "August",  "tentative": True,  "desc": "HRBP Corporate"},
+            {"date": "15", "title": "July Newsletter - Karyawan Penurut vs Pembangkang","end": "",    "tentative": False, "desc": "BA, Marcomm, R&D Nisa"},
+            {"date": "18", "title": "Webinar with APIO Jawa Tengah",                "end": "",        "tentative": True,  "desc": "BA, Marcomm, PLES"},
         ],
         "Aug": [
-            {"date": "15", "title": "August Newsletter \u201cAsesmen Asal Jadi, Apa Dampaknya?\u201d", "end": None,     "tentative": False, "desc": "BA, Marcomm, R&D Fatiya"},
+            {"date": "15", "title": "August Newsletter - Asesmen Asal Jadi",       "end": "",        "tentative": False, "desc": "BA, Marcomm, R&D Fatiya"},
         ],
         "Sep": [
-            {"date": "15", "title": "September Newsletter \u201cStrategic Problem Solving\u201d",    "end": None,        "tentative": False, "desc": "BA, Marcomm, R&D Afiya"},
+            {"date": "15", "title": "September Newsletter - Strategic Problem Solving","end": "",     "tentative": False, "desc": "BA, Marcomm, R&D Afiya"},
         ],
         "Oct": [
-            {"date": "15", "title": "October Newsletter \u201cFormula Sukses = X + Y + Z\u201d",     "end": None,        "tentative": False, "desc": "BA, Marcomm, R&D Diana"},
+            {"date": "15", "title": "October Newsletter - Formula Sukses X+Y+Z",   "end": "",        "tentative": False, "desc": "BA, Marcomm, R&D Diana"},
         ],
         "Nov": [
-            {"date": "15", "title": "November Newsletter \u201cThe Gender Myth in Critical Thinking\u201d", "end": None, "tentative": False, "desc": "BA, Marcomm, R&D Fatiya"},
+            {"date": "15", "title": "November Newsletter - The Gender Myth",        "end": "",        "tentative": False, "desc": "BA, Marcomm, R&D Fatiya"},
         ],
         "Dec": [
-            {"date": "15", "title": "December Newsletter \u201cWorking Memory Capacity\u201d",       "end": None,        "tentative": False, "desc": "BA, Marcomm, R&D Afiya"},
+            {"date": "15", "title": "December Newsletter - Working Memory Capacity","end": "",        "tentative": False, "desc": "BA, Marcomm, R&D Afiya"},
         ],
     }
 
-    events_json = json.dumps(events_data, ensure_ascii=False)
+    # json.dumps dengan ensure_ascii=True agar 100% aman di semua environment
+    events_json = json.dumps(events_data, ensure_ascii=True)
 
-    calendar_html = f"""
-    <!DOCTYPE html>
-    <html>
-    <head>
-    <meta charset="UTF-8">
-    <style>
-      * {{ box-sizing: border-box; margin: 0; padding: 0; }}
-      body {{
-        font-family: "Source Sans Pro", sans-serif;
-        background: #f7f8fc;
-        padding: 8px 4px;
-      }}
-
-      .subtitle {{ font-size: 12px; color: #9ca3af; margin-bottom: 20px; }}
-
-      /* layout */
-      .layout {{ display: flex; gap: 24px; align-items: flex-start; }}
-
-      /* month grid */
-      .month-panel {{ width: 200px; flex-shrink: 0; }}
-      .month-grid  {{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; }}
-      .month-btn {{
-        background: white;
-        border: 2px solid #dbe2ff;
-        border-radius: 10px;
-        padding: 9px 4px;
-        text-align: center;
-        cursor: pointer;
-        font-family: inherit;
-        font-size: 11.5px;
-        font-weight: 600;
-        color: #6b7280;
-        transition: all 0.15s ease;
-        width: 100%;
-        line-height: 1.3;
-      }}
-      .month-btn:hover  {{ border-color: #ff4b5c; color: #ff4b5c; background: #fff5f6; }}
-      .month-btn.active {{
-        background: #ff4b5c;
-        border-color: #ff4b5c;
-        color: white;
-        box-shadow: 0 4px 12px rgba(255,75,92,.3);
-      }}
-      .month-btn.empty  {{ opacity: .4; cursor: default; }}
-      .month-btn.empty:hover {{ border-color: #dbe2ff; color: #6b7280; background: white; }}
-      .month-btn .count {{ display: block; font-size: 9.5px; font-weight: 400; margin-top: 2px; opacity: .75; }}
-
-      /* events panel */
-      .events-panel  {{ flex: 1; min-width: 0; }}
-      .panel-header  {{ font-size: 26px; font-weight: 700; color: #1f2937; margin-bottom: 2px; }}
-      .panel-count   {{ font-size: 12px; color: #9ca3af; margin-bottom: 16px; }}
-      .no-events     {{ color: #d1d5db; font-size: 13px; font-style: italic; }}
-
-      /* event row */
-      .event-row  {{ display: flex; gap: 12px; align-items: flex-start; margin-bottom: 10px; }}
-      .date-chip  {{
-        min-width: 48px; height: 48px;
-        background: #ff4b5c;
-        border-radius: 10px;
-        display: flex; align-items: center; justify-content: center;
-        font-size: 19px; font-weight: 700; color: white; flex-shrink: 0;
-        box-shadow: 0 3px 8px rgba(255,75,92,.25);
-      }}
-      .event-card  {{
-        background: white;
-        border-radius: 10px;
-        padding: 10px 14px;
-        flex: 1;
-        border: 1px solid #e5e7eb;
-        min-width: 0;
-        box-shadow: 0px 2px 6px rgba(0,0,0,0.04);
-      }}
-      .event-title  {{ font-size: 13px; font-weight: 700; color: #1f2937; line-height: 1.4; }}
-      .event-badges {{ display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }}
-      .badge        {{ display: inline-block; font-size: 10px; font-weight: 600; border-radius: 5px; padding: 2px 7px; }}
-      .badge-end        {{ background: #fff0f2; color: #ff4b5c; }}
-      .badge-tentative  {{ background: #fff8e1; color: #d97706; }}
-      .event-desc   {{ font-size: 11px; color: #9ca3af; margin-top: 4px; }}
-      .divider      {{ height: 1px; background: #f3f4f6; margin: 3px 0 10px 0; }}
-    </style>
-    </head>
-    <body>
-
-    <p class="subtitle">Klik bulan untuk melihat jadwal event. Events marked with * may be subject to date changes.</p>
-
-    <div class="layout">
-      <div class="month-panel"><div class="month-grid" id="grid"></div></div>
-      <div class="events-panel" id="panel"></div>
-    </div>
-
-    <script>
-    const events = {events_json};
-    const months = Object.keys(events);
-    let selected = "May";
-
-    function renderGrid() {{
-      const grid = document.getElementById("grid");
-      grid.innerHTML = "";
-      months.forEach(m => {{
-        const n = events[m].length;
-        const btn = document.createElement("button");
-        btn.className = "month-btn" + (n === 0 ? " empty" : "") + (m === selected ? " active" : "");
-        btn.innerHTML = m + '<span class="count">' + n + ' event' + (n !== 1 ? 's' : '') + '</span>';
-        if (n > 0) btn.onclick = () => {{ selected = m; renderGrid(); renderPanel(); }};
-        grid.appendChild(btn);
-      }});
-    }}
-
-    function renderPanel() {{
-      const panel = document.getElementById("panel");
-      const list  = events[selected];
-      let html = '<div class="panel-header">' + selected + '</div>';
-      html += '<div class="panel-count">' + list.length + ' scheduled event' + (list.length !== 1 ? 's' : '') + '</div>';
-      if (list.length === 0) {{
-        html += '<div class="no-events">Tidak ada event di bulan ini.</div>';
-      }} else {{
-        list.forEach((ev, i) => {{
-          let badges = '';
-          if (ev.tentative) badges += '<span class="badge badge-tentative">\u26a0 Tentative</span>';
-          if (ev.end)       badges += '<span class="badge badge-end">\u2192 ends ' + ev.end + '</span>';
-          const badgesHtml = badges ? '<div class="event-badges">' + badges + '</div>' : '';
-          const divider    = i < list.length - 1 ? '<div class="divider"></div>' : '';
-          html +=
-            '<div class="event-row">' +
-              '<div class="date-chip">' + ev.date + '</div>' +
-              '<div class="event-card">' +
-                '<div class="event-title">' + ev.title + '</div>' +
-                badgesHtml +
-                '<div class="event-desc">\ud83d\udc65 ' + ev.desc + '</div>' +
-              '</div>' +
-            '</div>' + divider;
-        }});
-      }}
-      panel.innerHTML = html;
-    }}
-
-    renderGrid();
-    renderPanel();
-    </script>
-    </body>
-    </html>
-    """
+    calendar_html = (
+        "<!DOCTYPE html><html><head><meta charset='UTF-8'>"
+        "<style>"
+        "* { box-sizing: border-box; margin: 0; padding: 0; }"
+        "body { font-family: 'Source Sans Pro', sans-serif; background: #f7f8fc; padding: 8px 4px; }"
+        ".subtitle { font-size: 12px; color: #9ca3af; margin-bottom: 20px; }"
+        ".layout { display: flex; gap: 24px; align-items: flex-start; }"
+        ".month-panel { width: 200px; flex-shrink: 0; }"
+        ".month-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; }"
+        ".month-btn {"
+        "  background: white; border: 2px solid #dbe2ff; border-radius: 10px;"
+        "  padding: 9px 4px; text-align: center; cursor: pointer;"
+        "  font-family: inherit; font-size: 11.5px; font-weight: 600; color: #6b7280;"
+        "  transition: all 0.15s ease; width: 100%; line-height: 1.3;"
+        "}"
+        ".month-btn:hover { border-color: #ff4b5c; color: #ff4b5c; background: #fff5f6; }"
+        ".month-btn.active { background: #ff4b5c; border-color: #ff4b5c; color: white; box-shadow: 0 4px 12px rgba(255,75,92,.3); }"
+        ".month-btn.empty { opacity: .4; cursor: default; }"
+        ".month-btn.empty:hover { border-color: #dbe2ff; color: #6b7280; background: white; }"
+        ".month-btn .count { display: block; font-size: 9.5px; font-weight: 400; margin-top: 2px; opacity: .75; }"
+        ".events-panel { flex: 1; min-width: 0; }"
+        ".panel-header { font-size: 26px; font-weight: 700; color: #1f2937; margin-bottom: 2px; }"
+        ".panel-count { font-size: 12px; color: #9ca3af; margin-bottom: 16px; }"
+        ".no-events { color: #d1d5db; font-size: 13px; font-style: italic; }"
+        ".event-row { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 10px; }"
+        ".date-chip {"
+        "  min-width: 48px; height: 48px; background: #ff4b5c; border-radius: 10px;"
+        "  display: flex; align-items: center; justify-content: center;"
+        "  font-size: 19px; font-weight: 700; color: white; flex-shrink: 0;"
+        "  box-shadow: 0 3px 8px rgba(255,75,92,.25);"
+        "}"
+        ".event-card {"
+        "  background: white; border-radius: 10px; padding: 10px 14px;"
+        "  flex: 1; border: 1px solid #e5e7eb; min-width: 0;"
+        "  box-shadow: 0px 2px 6px rgba(0,0,0,0.04);"
+        "}"
+        ".event-title { font-size: 13px; font-weight: 700; color: #1f2937; line-height: 1.4; }"
+        ".event-badges { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }"
+        ".badge { display: inline-block; font-size: 10px; font-weight: 600; border-radius: 5px; padding: 2px 7px; }"
+        ".badge-end { background: #fff0f2; color: #ff4b5c; }"
+        ".badge-tentative { background: #fff8e1; color: #d97706; }"
+        ".event-desc { font-size: 11px; color: #9ca3af; margin-top: 4px; }"
+        ".divider { height: 1px; background: #f3f4f6; margin: 3px 0 10px 0; }"
+        "</style></head><body>"
+        "<p class='subtitle'>Klik bulan untuk melihat jadwal event. "
+        "Events marked with * may be subject to date changes.</p>"
+        "<div class='layout'>"
+        "<div class='month-panel'><div class='month-grid' id='grid'></div></div>"
+        "<div class='events-panel' id='panel'></div>"
+        "</div>"
+        "<script>"
+        "var events = " + events_json + ";"
+        "var months = Object.keys(events);"
+        "var selected = 'May';"
+        "function renderGrid() {"
+        "  var grid = document.getElementById('grid');"
+        "  grid.innerHTML = '';"
+        "  months.forEach(function(m) {"
+        "    var n = events[m].length;"
+        "    var btn = document.createElement('button');"
+        "    btn.className = 'month-btn' + (n === 0 ? ' empty' : '') + (m === selected ? ' active' : '');"
+        "    btn.innerHTML = m + '<span class=\"count\">' + n + ' event' + (n !== 1 ? 's' : '') + '</span>';"
+        "    if (n > 0) { btn.onclick = (function(mo) { return function() { selected = mo; renderGrid(); renderPanel(); }; })(m); }"
+        "    grid.appendChild(btn);"
+        "  });"
+        "}"
+        "function renderPanel() {"
+        "  var panel = document.getElementById('panel');"
+        "  var list = events[selected];"
+        "  var html = '<div class=\"panel-header\">' + selected + '</div>';"
+        "  html += '<div class=\"panel-count\">' + list.length + ' scheduled event' + (list.length !== 1 ? 's' : '') + '</div>';"
+        "  if (list.length === 0) {"
+        "    html += '<div class=\"no-events\">Tidak ada event di bulan ini.</div>';"
+        "  } else {"
+        "    list.forEach(function(ev, i) {"
+        "      var badges = '';"
+        "      if (ev.tentative) badges += '<span class=\"badge badge-tentative\">Tentative</span>';"
+        "      if (ev.end) badges += '<span class=\"badge badge-end\">ends ' + ev.end + '</span>';"
+        "      var badgesHtml = badges ? '<div class=\"event-badges\">' + badges + '</div>' : '';"
+        "      var divider = i < list.length - 1 ? '<div class=\"divider\"></div>' : '';"
+        "      html += '<div class=\"event-row\">' +"
+        "        '<div class=\"date-chip\">' + ev.date + '</div>' +"
+        "        '<div class=\"event-card\">' +"
+        "          '<div class=\"event-title\">' + ev.title + '</div>' +"
+        "          badgesHtml +"
+        "          '<div class=\"event-desc\">' + ev.desc + '</div>' +"
+        "        '</div>' +"
+        "      '</div>' + divider;"
+        "    });"
+        "  }"
+        "  panel.innerHTML = html;"
+        "}"
+        "renderGrid();"
+        "renderPanel();"
+        "</script></body></html>"
+    )
 
     st.title("Faxtor 2026 Calendar")
     components.html(calendar_html, height=900, scrolling=True)
