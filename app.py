@@ -725,7 +725,9 @@ elif page == "Faxtor 2026 Calendar":
     # Semua string pakai ASCII biasa — tidak ada unicode escape atau emoji
     # agar tidak terjadi UnicodeEncodeError di Streamlit Cloud
     events_data = {
-        "Jan": [],
+        "Jan": [
+            {"date": "28", "title": "Annual Business Plan 2026",      "end": "",         "tentative": False, "desc": "All Division"},
+        ],
         "Feb": [],
         "Mar": [
             {"date": "1",  "title": "Uji Coba FLSI",            "end": "May",  "tentative": False, "desc": "R&D Fatiya"},
@@ -830,8 +832,7 @@ elif page == "Faxtor 2026 Calendar":
         ".event-desc { font-size: 11px; color: #9ca3af; margin-top: 4px; }"
         ".divider { height: 1px; background: #f3f4f6; margin: 3px 0 10px 0; }"
         "</style></head><body>"
-        "<p class='subtitle'>Klik bulan untuk melihat jadwal event. "
-        "Events marked with * may be subject to date changes.</p>"
+        "<p class='subtitle'>Click month to view detailed events. "
         "<div class='layout'>"
         "<div class='month-panel'><div class='month-grid' id='grid'></div></div>"
         "<div class='events-panel' id='panel'></div>"
