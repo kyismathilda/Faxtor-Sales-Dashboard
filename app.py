@@ -357,7 +357,7 @@ elif page == "Monthly Business Performance":
             }
         },
     }
-    month = st.radio("Choose Month", list(data.keys()))
+    month = st.radio("Choose Month", list(data.keys()), horizontal=True)
     d = data[month]
 
    
