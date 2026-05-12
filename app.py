@@ -340,7 +340,7 @@ elif page == "Monthly Business Performance":
                 "MSSQ": 239, "MSDQ": 232, "GWS": 7
             }
         },
-
+    }
     month = st.radio("Choose Month", list(data.keys()))
     d = data[month]
 
