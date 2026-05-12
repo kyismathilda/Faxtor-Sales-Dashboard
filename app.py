@@ -307,8 +307,8 @@ elif page == "Monthly Business Performance":
                 "PII": 28, "EII": 35, "INCRITS": 261, "OPTI": 347,
                 "MSSQ": 37, "MSDQ": 24, "GWS": 1
             }
-        }
-    }
+        },
+    
         "April": {
             "gross": 128,
             "gross_nominal": "Rp961.506.500",
