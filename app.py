@@ -71,9 +71,9 @@ with st.sidebar:
             "Monthly Business Performance",
             "New Client Tracker",
             "Expansion Tracker",
+            "Faxtor 2026 Calendar",
             "Royalty Calculator",
-            "Sales Forecaster",
-            "Faxtor 2026 Calendar"
+            "Sales Forecaster"
         ]
     )
 
@@ -631,137 +631,6 @@ elif page == "Expansion Tracker":
             st.metric(f"{island} Client", total_client, f"{percentage:.0f}% of total")
             st.bar_chart(table.set_index("Province"))
 
-
-# PAGE 3
-
-elif page == "Royalty Calculator":
-
-    st.title("Royalty Calculator")
-
-    mode = st.radio("Royalty Scheme", ["Percentage-based", "Fixed Number"])
-
-    table = pd.DataFrame(
-        list(royalty_pricing.items()),
-        columns=["Product", "Price"]
-    )
-
-    if mode == "Percentage-based":
-        rate = st.slider("Royalty Rate (%)", 0, 100, 30)
-        rate = rate / 100
-
-        table["Royalty"] = (table["Price"] * rate).astype(int)
-
-    else:
-        fixed = st.slider("Fixed Number (Rp)", 0, 50000, 10000)
-        table["Royalty"] = fixed
-
-    table["Server Cost"] = 10000
-
-    table["Margin (%)"] = (
-        (table["Price"] - table["Royalty"] - table["Server Cost"])
-        / table["Price"] * 100
-    ).round(0).astype(int)
-
-  
-    # STYLING TABLE
-   
-    styled_table = table.style.set_table_styles([
-        {
-            "selector": "th",
-            "props": [
-                ("background-color", "#dbe2ff"),  # biru muda
-                ("color", "#2c3e50"),
-                ("font-weight", "bold")
-            ]
-        }
-    ])
-
-    styled_table = styled_table.format({
-        "Price": "Rp{:,.0f}",
-        "Royalty": "Rp{:,.0f}",
-        "Server Cost": "Rp{:,.0f}"
-    })
-
-    
-    # OUTPUT
-    
-    st.subheader("Royalty Table")
-    st.dataframe(styled_table)
-
-
-# PAGE 5
-
-elif page == "Sales Forecaster":
-
-    st.title("Sales Forecaster")
-
-    mode = st.radio(
-        "Choose Pricing Setup",
-        ["Standard Enterprise", "Professional Enterprise"]
-    )
-
-    pricing = standard_pricing if mode == "Standard Enterprise" else professional_pricing
-
-    st.metric("Monthly Gross Target", f"Rp{gross_target:,}")
-
-    col1, col2 = st.columns([1,1])
-
-    quantity = {}
-    data = []
-    total_revenue = 0
-
-    with col1:
-        st.subheader("Sales Volume")
-
-        for product in pricing:
-
-            col_img, col_slider = st.columns([1,3])
-
-            with col_img:
-                if product in logo_map:
-                    st.image(logo_map[product], width=70)
-                    st.caption(product)  # optional biar tetap kebaca
-                else:
-                    st.markdown(f"**{product}**")
-
-            with col_slider:
-                quantity[product] = st.slider(
-                    label="",
-                    min_value=0,
-                    max_value=50000,
-                    value=0,
-                    step=5,
-                    key=product
-                )
-
-    for product in pricing:
-        price = pricing[product]
-        qty = quantity[product]
-        revenue = price * qty
-
-        total_revenue += revenue
-
-        data.append({
-            "Product": product,
-            "Price": price,
-            "Quantity": qty,
-            "Revenue": revenue
-        })
-
-    df = pd.DataFrame(data)
-    achievement = (total_revenue / gross_target) * 100
-
-    with col2:
-        st.subheader("Total Revenue")
-
-        st.metric(
-            label="",
-            value=f"Rp{total_revenue:,}",
-            delta=f"{achievement:.0f}% of target"
-        )
-
-        st.bar_chart(df.set_index("Product")["Revenue"])
-
 # PAGE 6
 elif page == "Faxtor 2026 Calendar":
 
@@ -939,3 +808,136 @@ elif page == "Faxtor 2026 Calendar":
 
     st.title("Faxtor 2026 Calendar")
     components.html(calendar_html, height=900, scrolling=True)
+
+
+# PAGE 3
+
+elif page == "Royalty Calculator":
+
+    st.title("Royalty Calculator")
+
+    mode = st.radio("Royalty Scheme", ["Percentage-based", "Fixed Number"])
+
+    table = pd.DataFrame(
+        list(royalty_pricing.items()),
+        columns=["Product", "Price"]
+    )
+
+    if mode == "Percentage-based":
+        rate = st.slider("Royalty Rate (%)", 0, 100, 30)
+        rate = rate / 100
+
+        table["Royalty"] = (table["Price"] * rate).astype(int)
+
+    else:
+        fixed = st.slider("Fixed Number (Rp)", 0, 50000, 10000)
+        table["Royalty"] = fixed
+
+    table["Server Cost"] = 10000
+
+    table["Margin (%)"] = (
+        (table["Price"] - table["Royalty"] - table["Server Cost"])
+        / table["Price"] * 100
+    ).round(0).astype(int)
+
+  
+    # STYLING TABLE
+   
+    styled_table = table.style.set_table_styles([
+        {
+            "selector": "th",
+            "props": [
+                ("background-color", "#dbe2ff"),  # biru muda
+                ("color", "#2c3e50"),
+                ("font-weight", "bold")
+            ]
+        }
+    ])
+
+    styled_table = styled_table.format({
+        "Price": "Rp{:,.0f}",
+        "Royalty": "Rp{:,.0f}",
+        "Server Cost": "Rp{:,.0f}"
+    })
+
+    
+    # OUTPUT
+    
+    st.subheader("Royalty Table")
+    st.dataframe(styled_table)
+
+
+# PAGE 5
+
+elif page == "Sales Forecaster":
+
+    st.title("Sales Forecaster")
+
+    mode = st.radio(
+        "Choose Pricing Setup",
+        ["Standard Enterprise", "Professional Enterprise"]
+    )
+
+    pricing = standard_pricing if mode == "Standard Enterprise" else professional_pricing
+
+    st.metric("Monthly Gross Target", f"Rp{gross_target:,}")
+
+    col1, col2 = st.columns([1,1])
+
+    quantity = {}
+    data = []
+    total_revenue = 0
+
+    with col1:
+        st.subheader("Sales Volume")
+
+        for product in pricing:
+
+            col_img, col_slider = st.columns([1,3])
+
+            with col_img:
+                if product in logo_map:
+                    st.image(logo_map[product], width=70)
+                    st.caption(product)  # optional biar tetap kebaca
+                else:
+                    st.markdown(f"**{product}**")
+
+            with col_slider:
+                quantity[product] = st.slider(
+                    label="",
+                    min_value=0,
+                    max_value=50000,
+                    value=0,
+                    step=5,
+                    key=product
+                )
+
+    for product in pricing:
+        price = pricing[product]
+        qty = quantity[product]
+        revenue = price * qty
+
+        total_revenue += revenue
+
+        data.append({
+            "Product": product,
+            "Price": price,
+            "Quantity": qty,
+            "Revenue": revenue
+        })
+
+    df = pd.DataFrame(data)
+    achievement = (total_revenue / gross_target) * 100
+
+    with col2:
+        st.subheader("Total Revenue")
+
+        st.metric(
+            label="",
+            value=f"Rp{total_revenue:,}",
+            delta=f"{achievement:.0f}% of target"
+        )
+
+        st.bar_chart(df.set_index("Product")["Revenue"])
+
+
