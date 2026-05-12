@@ -544,7 +544,7 @@ elif page ==  "New Client Tracker":
 # TOTAL REVENUE
 # =====================================================
 
-    new_client_revenue=136949000
+    new_client_revenue=139764000
     st.metric("Total New Client Revenue", f"Rp{new_client_revenue:,}")
 
 
