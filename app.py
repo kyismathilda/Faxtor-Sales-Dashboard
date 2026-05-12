@@ -88,16 +88,16 @@ royalty_pricing = {
     "INCRITS": 50000,
 }
 
-revenue_actual=2437661932
+revenue_actual=3399168432
 revenue_target=9000000000
-profit_actual=755626322
+profit_actual=1108540232
 profit_target=3600000000
 
 expansion_data = {
-    "Jawa":{"Banten":50,"DIY":16,"DKI Jakarta":158,"Jawa Barat":223,"Jawa Tengah":19,"Jawa Timur":32},
+    "Jawa":{"Banten":52,"DIY":16,"DKI Jakarta":166,"Jawa Barat":230,"Jawa Tengah":22,"Jawa Timur":32},
     "Sumatra":{"Aceh":7,"Bangka Belitung":2,"Jambi":2,"Kep. Riau":5,"Lampung":4,"Riau":4,"Sumatra Barat":7,"Sumatra Selatan":3,"Sumatra Utara":23},
     "Kalimantan":{"Kalimantan Barat":3,"Kalimantan Selatan":1,"Kalimantan Tengah":4,"Kalimantan Timur":8,"Kalimantan Utara":2},
-    "Sulawesi":{"Sulawesi Tenggara":4,"Sulawesi Selatan":5},
+    "Sulawesi":{"Sulawesi Tenggara":4,"Sulawesi Selatan":6},
     "BaliNusra":{"Bali":8,"NTB":2},
     "Papua":{"Jayapura":2,"Sorong":1},
 }
@@ -309,7 +309,37 @@ elif page == "Monthly Business Performance":
             }
         }
     }
+        "April": {
+            "gross": 128,
+            "gross_nominal": "Rp961.506.500",
+            "gross_insight": "We successfully surpass the Gross Target by 128% (Rp961.506.500).",
 
+            "nett": 118,
+            "nett_nominal": "Rp352.913.910",
+            "nett_insight": "We successfully achieved minimum Nett Income in April.",
+
+            "growth_lm": 46,
+            "growth_lm_text": "vs Gross LM Mar’26 (Rp659.070.130)",
+
+            "growth_ytd":921,
+            "growth_ytd_text": "vs Gross YTD Apr’25 (Rp104.356.500)",
+
+            "client": 21,
+            "client_text": [
+                "Yayasan Daarut Tauhid (LAZ) - Bandung",
+                "PP Yudithh Bernadette - Bogor",
+                "PP Reny Rachmawatie - Jakarta",
+                "Klinik D'Fun Station - Bandung",
+                "PP ",
+                
+            ],
+            "tools": {
+                "FCAT": 3305, "FCATs": 1755, "FCAT-R": 45, "FTPI": 1778,
+                "BIG FIVE": 989, "FEAST": 5285, "LSSI": 134, "IAMAR": 36,
+                "PII": 918, "EII": 64, "INCRITS": 2364, "OPTI": 2888,
+                "MSSQ": 239, "MSDQ": 232, "GWS": 7
+            }
+        },
 
     month = st.radio("Choose Month", list(data.keys()))
     d = data[month]
