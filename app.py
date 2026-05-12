@@ -330,14 +330,30 @@ elif page == "Monthly Business Performance":
                 "PP Yudithh Bernadette - Bogor",
                 "PP Reny Rachmawatie - Jakarta",
                 "Klinik D'Fun Station - Bandung",
-                "PP ",
+                "PP Disa Nisrina Listiani - Tangerang",
+                "PP Dina Islamiyah - Bandung",
+                "PT. Mitra Cakrawala International Group - Jakarta",
+                "PP Yanti Mujiharti - Jakarta",
+                "PP Bhumidana Indonesia - Bandung",
+                "PP Ninette Putri Mustika - Jakarta",
+                "Layanan Sedari Diri - Tangerang",
+                "Biro Human Persona - Jakarta",
+                "PP Devita - Jakarta",
+                "PLP Universitas Hasanuddin - Sulawesi Selatan",
+                "Suhu Training - Yogyakarta",
+                "Five Psychology - Yogyakarta",
+                "Kelompok Riset Leadership UI - Depok",
+                "Yayasan Cahaya Mutiara / Sekolah Mutiara Bunda - Bandung",
+                "Biro Bina Citra - Yogyakarta",
+                "Klinik Mayapada - Jakarta",
+                "PP Fairuz Syifa Rosyidah - Jakarta",
                 
             ],
             "tools": {
-                "FCAT": 3305, "FCATs": 1755, "FCAT-R": 45, "FTPI": 1778,
-                "BIG FIVE": 989, "FEAST": 5285, "LSSI": 134, "IAMAR": 36,
-                "PII": 918, "EII": 64, "INCRITS": 2364, "OPTI": 2888,
-                "MSSQ": 239, "MSDQ": 232, "GWS": 7
+                "FCAT": 0, "FCATs": 0, "FCAT-R": 0, "FTPI": 0,
+                "BIG FIVE": 0, "FEAST": 0, "LSSI": 0, "IAMAR": 0,
+                "PII": 0, "EII": 0, "INCRITS": 0, "OPTI": 0,
+                "MSSQ": 0, "MSDQ": 0, "GWS": 0
             }
         },
     }
