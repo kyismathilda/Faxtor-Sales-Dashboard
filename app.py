@@ -671,10 +671,9 @@ elif page == "Faxtor 2026 Calendar":
             {"date": "30", "title": "Education Webinar with APSI DKI Jakarta",     "end": "",         "tentative": False, "desc": "BA, Marcomm, PLES"},
         ],
         "Jun": [
-            {"date": "1",  "title": "Perpindahan Kantor Baru",                     "end": "",         "tentative": True,  "desc": "HRBP Corporate"},
             {"date": "6", "title": "Project BJB (Geo) Tes Produk",                          "end": "",         "tentative": False,  "desc": "AS"},
             {"date": "13", "title": "Project BJB (Adel) Psikotes & Interview",                          "end": "14 June",         "tentative": False,  "desc": "AS"},
-            {"date": "13", "title": "Webinar Faxtor FMAT",                          "end": "",         "tentative": True,  "desc": "BA, Marcomm, PLES"},
+            {"date": "15",  "title": "Perpindahan Kantor Baru",                     "end": "",         "tentative": True,  "desc": "HRBP Corporate"},
             {"date": "15", "title": "Pelatihan dan Evaluasi Psikolog Mitra Batch 2","end": "August",  "tentative": True,  "desc": "PLES"},
             {"date": "15", "title": "Pelatihan dan Evaluasi Psikolog Mitra Batch 3","end": "September","tentative": True, "desc": "PLES"},
             {"date": "15", "title": "June Newsletter - Cybernetic Leadership",      "end": "",         "tentative": False, "desc": "BA, Marcomm, R&D Hafi"},
@@ -682,6 +681,7 @@ elif page == "Faxtor 2026 Calendar":
         ],
         "Jul": [
             {"date": "13", "title": "Mid Year Performance Review - All Employee",   "end": "August",  "tentative": True,  "desc": "HRBP Corporate"},
+            {"date": "13", "title": "Webinar Faxtor FMAT",                          "end": "",         "tentative": True,  "desc": "BA, Marcomm, PLES"},
             {"date": "15", "title": "July Newsletter - Karyawan Penurut vs Pembangkang","end": "",    "tentative": False, "desc": "BA, Marcomm, R&D Nisa"},
             {"date": "18", "title": "Webinar with APIO Jawa Tengah",                "end": "",        "tentative": True,  "desc": "BA, Marcomm, PLES"},
         ],
