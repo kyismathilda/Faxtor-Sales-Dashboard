@@ -672,8 +672,8 @@ elif page == "Faxtor 2026 Calendar":
         ],
         "Jun": [
             {"date": "1",  "title": "Perpindahan Kantor Baru",                     "end": "",         "tentative": True,  "desc": "HRBP Corporate"},
-            {"date": "6", "title": "Project BJB (Geo) Tes Produk",                          "end": "",         "tentative": True,  "desc": "AS"},
-            {"date": "13", "title": "Project BJB (Adel) Psikotes & Interview",                          "end": "14 June",         "tentative": True,  "desc": "AS"},
+            {"date": "6", "title": "Project BJB (Geo) Tes Produk",                          "end": "",         "tentative": False,  "desc": "AS"},
+            {"date": "13", "title": "Project BJB (Adel) Psikotes & Interview",                          "end": "14 June",         "tentative": False,  "desc": "AS"},
             {"date": "13", "title": "Webinar Faxtor FMAT",                          "end": "",         "tentative": True,  "desc": "BA, Marcomm, PLES"},
             {"date": "15", "title": "Pelatihan dan Evaluasi Psikolog Mitra Batch 2","end": "August",  "tentative": True,  "desc": "PLES"},
             {"date": "15", "title": "Pelatihan dan Evaluasi Psikolog Mitra Batch 3","end": "September","tentative": True, "desc": "PLES"},
