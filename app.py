@@ -480,7 +480,7 @@ elif page ==  "New Client Tracker":
 
     new_client_df = pd.DataFrame({
         "Month": month_order,
-        "Client": [17, 7, 7, 21, 0, 0, 0, 0, 0, 0, 0, 0]
+        "Client": [17, 7, 7, 21, 8, 0, 0, 0, 0, 0, 0, 0]
     })
 
     new_client_df["Month"] = pd.Categorical(
@@ -526,7 +526,7 @@ elif page ==  "New Client Tracker":
 
         "2026": [
         148, 137, 118, 178,
-        0, 0, 0, 0,
+        173, 0, 0, 0,
         0, 0, 0, 0
         ]
     })
@@ -561,6 +561,10 @@ elif page ==  "New Client Tracker":
         ],
 
         "April": [
+        "-"
+        ],
+        
+        "May": [
         "-"
         ]
     }
