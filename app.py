@@ -361,7 +361,7 @@ elif page == "Monthly Business Performance":
             "gross_nominal": "Rp414.328.550",
             "gross_insight": "We partially surpass the Gross Target by 55% (Rp414.328.550).",
 
-            "nett": -2,
+            "nett": 1.5,
             "nett_nominal": "Rp4.502.782",
             "nett_insight": "We haven't achieved minimum Nett Income in May.",
 
