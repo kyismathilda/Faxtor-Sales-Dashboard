@@ -356,6 +356,39 @@ elif page == "Monthly Business Performance":
                 "MSSQ": 320, "MSDQ": 308, "GWS": 3
             }
         },
+        "May": {
+            "gross": 55,
+            "gross_nominal": "Rp414328550",
+            "gross_insight": "We partially surpass the Gross Target by 55% (Rp414.328.550).",
+
+            "nett": 0,
+            "nett_nominal": "Rp0",
+            "nett_insight": "We haven't achieved minimum Nett Income in May.",
+
+            "growth_lm": -57,
+            "growth_lm_text": "vs Gross LM Apr’26 (Rp961.506.500)",
+
+            "growth_ytd":98,
+            "growth_ytd_text": "vs Gross YTD May’25 (Rp424.011.350)",
+
+            "client": 8,
+            "client_text": [
+                "Arutala Growth Corner - Kab. Lombok Barat",
+                "PP Susilawati - Tangerang",
+                "KOBI Education - Bandung",
+                "Katamistry Consulting - Jakarta Selatan",
+                "Bunayya Counselor - Depok",
+                "Fresnel Pialang Asuransi Mandiri - Jakarta Selatan",
+                "Humanis Psikologi - Tangerang Selatan",
+                "Fakultas Hukum UGM - Yogyakarta",
+            ],
+            "tools": {
+                "FCAT": 575, "FCATs": 1739, "FCAT-R": 220, "FTPI": 2451,
+                "BIG FIVE": 991, "FEAST": 6360, "LSSI": 100, "IAMAR": 215,
+                "PII": 124, "EII": 132, "INCRITS": 140, "OPTI": 499,
+                "MSSQ": 298, "MSDQ": 288, "GWS": 6
+            }
+        },
     }
     month = st.radio("Choose Month", list(data.keys()), horizontal=True)
     d = data[month]
