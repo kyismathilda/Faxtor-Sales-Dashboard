@@ -358,7 +358,7 @@ elif page == "Monthly Business Performance":
         },
         "May": {
             "gross": 55,
-            "gross_nominal": "Rp414328550",
+            "gross_nominal": "Rp414.328.550",
             "gross_insight": "We partially surpass the Gross Target by 55% (Rp414.328.550).",
 
             "nett": 0,
@@ -368,7 +368,7 @@ elif page == "Monthly Business Performance":
             "growth_lm": -57,
             "growth_lm_text": "vs Gross LM Apr’26 (Rp961.506.500)",
 
-            "growth_ytd":98,
+            "growth_ytd":-2,
             "growth_ytd_text": "vs Gross YTD May’25 (Rp424.011.350)",
 
             "client": 8,
