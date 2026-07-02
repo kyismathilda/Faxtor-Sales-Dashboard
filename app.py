@@ -94,11 +94,11 @@ profit_actual=1108540232
 profit_target=3600000000
 
 expansion_data = {
-    "Jawa":{"Banten":52,"DIY":16,"DKI Jakarta":166,"Jawa Barat":230,"Jawa Tengah":22,"Jawa Timur":32},
+    "Jawa":{"Banten":54,"DIY":16,"DKI Jakarta":168,"Jawa Barat":232,"Jawa Tengah":23,"Jawa Timur":32},
     "Sumatra":{"Aceh":7,"Bangka Belitung":2,"Jambi":2,"Kep. Riau":5,"Lampung":4,"Riau":4,"Sumatra Barat":7,"Sumatra Selatan":3,"Sumatra Utara":23},
     "Kalimantan":{"Kalimantan Barat":3,"Kalimantan Selatan":1,"Kalimantan Tengah":4,"Kalimantan Timur":8,"Kalimantan Utara":2},
     "Sulawesi":{"Sulawesi Tenggara":4,"Sulawesi Selatan":6},
-    "BaliNusra":{"Bali":8,"NTB":2},
+    "BaliNusra":{"Bali":8,"NTB":2, "Lombok":1},
     "Papua":{"Jayapura":2,"Sorong":1},
 }
 
