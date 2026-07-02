@@ -638,6 +638,14 @@ elif page ==  "New Client Tracker":
 
         for client in sumatra_clients["April"]:
             st.markdown(f"• {client}")
+    with col4:
+
+        st.markdown("### May")
+
+        for client in sumatra_clients["May"]:
+            st.markdown(f"• {client}")
+
+
         
 # PAGE EXPANSION TRACKER
 elif page == "Expansion Tracker":
