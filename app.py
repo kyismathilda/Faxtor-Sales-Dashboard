@@ -361,8 +361,8 @@ elif page == "Monthly Business Performance":
             "gross_nominal": "Rp414.328.550",
             "gross_insight": "We partially surpass the Gross Target by 55% (Rp414.328.550).",
 
-            "nett": 0,
-            "nett_nominal": "Rp0",
+            "nett": -2,
+            "nett_nominal": "Rp4.502.782",
             "nett_insight": "We haven't achieved minimum Nett Income in May.",
 
             "growth_lm": -57,
@@ -609,7 +609,7 @@ elif page ==  "New Client Tracker":
 
     st.subheader("New Client Sumatra List")
 
-    col1, col2, col3, col4 = st.columns(4)
+    col1, col2, col3, col4, col5 = st.columns(5)
 
     with col1:
 
@@ -638,13 +638,13 @@ elif page ==  "New Client Tracker":
 
         for client in sumatra_clients["April"]:
             st.markdown(f"• {client}")
-    with col4:
+            
+    with col5:
 
         st.markdown("### May")
 
         for client in sumatra_clients["May"]:
             st.markdown(f"• {client}")
-
 
         
 # PAGE EXPANSION TRACKER
