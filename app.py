@@ -94,11 +94,11 @@ profit_actual=1108540232
 profit_target=3600000000
 
 expansion_data = {
-    "Jawa":{"Banten":54,"DIY":16,"DKI Jakarta":168,"Jawa Barat":232,"Jawa Tengah":23,"Jawa Timur":32},
-    "Sumatra":{"Aceh":7,"Bangka Belitung":2,"Jambi":2,"Kep. Riau":5,"Lampung":4,"Riau":4,"Sumatra Barat":7,"Sumatra Selatan":3,"Sumatra Utara":23},
+    "Jawa":{"Banten":54,"DIY":17,"DKI Jakarta":172,"Jawa Barat":237,"Jawa Tengah":24,"Jawa Timur":36},
+    "Sumatra":{"Aceh":8,"Bangka Belitung":2,"Jambi":2,"Kep. Riau":5,"Lampung":4,"Riau":4,"Sumatra Barat":7,"Sumatra Selatan":3,"Sumatra Utara":23},
     "Kalimantan":{"Kalimantan Barat":3,"Kalimantan Selatan":1,"Kalimantan Tengah":4,"Kalimantan Timur":8,"Kalimantan Utara":2},
     "Sulawesi":{"Sulawesi Tenggara":4,"Sulawesi Selatan":6},
-    "BaliNusra":{"Bali":8,"NTB":2, "Lombok":1},
+    "BaliNusra":{"Bali":10,"NTB":2, "Lombok":1},
     "Papua":{"Jayapura":2,"Sorong":1},
 }
 
@@ -371,6 +371,49 @@ elif page == "Monthly Business Performance":
             "growth_ytd":-2,
             "growth_ytd_text": "vs Gross YTD May’25 (Rp424.011.350)",
 
+            "client": 18,
+            "client_text": [
+                "PP Rulia Hanifah - Aceh",
+                "Biro Karna - Bandung",
+                "PP Fauzia Aulia Ramadhani - Yogyakarta",
+                "Yayasan Khoiru Ummah Insan Karimah - Kab. Bandung",
+                "PT Ormat Geothermal Indonesia -  Jakarta",
+                "PT Galva Galindra Multi Cipta - Jakarta",
+                "PT Arpan Bali Utama - Bali",
+                "SMAN Taruna Nala - Jawa Timur",
+                "PP Pratiwi Anjarsari - Jawa Timur",
+                "PP Amalia Paravoti - Semarang",
+                "Sekolah Global Prestasi - Depok",
+                "Nuntius Profundissimus - Indramayu",
+                "PT. Indo Mitra Pratama - Jakarta",
+                "Yayasan Pusdiklat PAL Indonesia - Surabaya",
+                "PT. Nago Tejana - Bali",
+                "PP Gisella Tani Pratiwi - Jakarta",
+                "JiwaPro - Jawa Timur",
+                "PP Indri Awalia - Bandung",
+            ],
+            "tools": {
+                "FCAT": 575, "FCATs": 1739, "FCAT-R": 220, "FTPI": 2451,
+                "BIG FIVE": 991, "FEAST": 6360, "LSSI": 100, "IAMAR": 215,
+                "PII": 124, "EII": 132, "INCRITS": 140, "OPTI": 499,
+                "MSSQ": 298, "MSDQ": 288, "GWS": 6
+            }
+        },
+        "June": {
+            "gross": 112,
+            "gross_nominal": "Rp842.115.500",
+            "gross_insight": "We successfully surpass the Gross Target by 112%.",
+
+            "nett": 160,
+            "nett_nominal": "Rp481.372.611",
+            "nett_insight": "We successfully surpass the Nett Target by 160%.",
+
+            "growth_lm": 103,
+            "growth_lm_text": "vs Gross LM May’26 (Rp414.328,550)",
+
+            "growth_ytd":275,
+            "growth_ytd_text": "vs Gross YTD Jun’25 (Rp306.247.000)",
+
             "client": 8,
             "client_text": [
                 "Arutala Growth Corner - Kab. Lombok Barat",
@@ -383,10 +426,10 @@ elif page == "Monthly Business Performance":
                 "Fakultas Hukum UGM - Yogyakarta",
             ],
             "tools": {
-                "FCAT": 575, "FCATs": 1739, "FCAT-R": 220, "FTPI": 2451,
-                "BIG FIVE": 991, "FEAST": 6360, "LSSI": 100, "IAMAR": 215,
-                "PII": 124, "EII": 132, "INCRITS": 140, "OPTI": 499,
-                "MSSQ": 298, "MSDQ": 288, "GWS": 6
+                "FCAT": 609, "FCATs": 1375, "FCAT-R": 474, "FTPI": 1527,
+                "BIG FIVE": 1037, "FEAST": 3001, "LSSI": 126, "IAMAR": 75,
+                "PII": 143, "EII": 111, "INCRITS": 113, "OPTI": 316,
+                "MSSQ": 34, "MSDQ": 22, "GWS": 1
             }
         },
     }
@@ -480,7 +523,7 @@ elif page ==  "New Client Tracker":
 
     new_client_df = pd.DataFrame({
         "Month": month_order,
-        "Client": [17, 7, 7, 21, 8, 0, 0, 0, 0, 0, 0, 0]
+        "Client": [17, 7, 7, 21, 18, 8, 0, 0, 0, 0, 0, 0]
     })
 
     new_client_df["Month"] = pd.Categorical(
@@ -498,7 +541,7 @@ elif page ==  "New Client Tracker":
 
     sumatra_df = pd.DataFrame({
         "Month": month_order,
-        "Client": [3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        "Client": [3, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0]
     })
 
     sumatra_df["Month"] = pd.Categorical(
@@ -565,6 +608,10 @@ elif page ==  "New Client Tracker":
         ],
         
         "May": [
+        "PP Rulia Hanifah"
+        ],
+        
+        "Jun": [
         "-"
         ]
     }
