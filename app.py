@@ -541,7 +541,7 @@ elif page ==  "New Client Tracker":
 
     sumatra_df = pd.DataFrame({
         "Month": month_order,
-        "Client": [3, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0]
+        "Client": [3, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0]
     })
 
     sumatra_df["Month"] = pd.Categorical(
@@ -569,7 +569,7 @@ elif page ==  "New Client Tracker":
 
         "2026": [
         148, 137, 118, 178,
-        173, 0, 0, 0,
+        173, 169, 0, 0,
         0, 0, 0, 0
         ]
     })
@@ -613,7 +613,7 @@ elif page ==  "New Client Tracker":
         
         "Jun": [
         "-"
-        ]
+        ],
     }
 
 # =====================================================
@@ -628,7 +628,7 @@ elif page ==  "New Client Tracker":
 # TOTAL REVENUE
 # =====================================================
 
-    new_client_revenue=139764000
+    new_client_revenue=238859815
     st.metric("Total New Client Revenue", f"Rp{new_client_revenue:,}")
 
 
