@@ -88,9 +88,9 @@ royalty_pricing = {
     "INCRITS": 50000,
 }
 
-revenue_actual=4444517542
+revenue_actual=4665331025
 revenue_target=9000000000
-profit_actual=1108540232
+profit_actual=1585410061
 profit_target=3600000000
 
 expansion_data = {
