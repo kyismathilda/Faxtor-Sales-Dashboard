@@ -94,12 +94,13 @@ profit_actual=1756130853
 profit_target=3600000000
 
 expansion_data = {
-    "Jawa":{"Banten":54,"DIY":17,"DKI Jakarta":172,"Jawa Barat":237,"Jawa Tengah":24,"Jawa Timur":36},
-    "Sumatra":{"Aceh":8,"Bangka Belitung":2,"Jambi":2,"Kep. Riau":5,"Lampung":4,"Riau":4,"Sumatra Barat":7,"Sumatra Selatan":3,"Sumatra Utara":23},
-    "Kalimantan":{"Kalimantan Barat":3,"Kalimantan Selatan":1,"Kalimantan Tengah":4,"Kalimantan Timur":8,"Kalimantan Utara":2},
+    "Jawa":{"Banten":54,"DIY":17,"DKI Jakarta":175,"Jawa Barat":239,"Jawa Tengah":25,"Jawa Timur":36},
+    "Sumatra":{"Aceh":8,"Bangka Belitung":2,"Jambi":3,"Kep. Riau":5,"Lampung":4,"Riau":4,"Sumatra Barat":7,"Sumatra Selatan":3,"Sumatra Utara":23},
+    "Kalimantan":{"Kalimantan Barat":3,"Kalimantan Selatan":2,"Kalimantan Tengah":4,"Kalimantan Timur":8,"Kalimantan Utara":2},
     "Sulawesi":{"Sulawesi Tenggara":4,"Sulawesi Selatan":6},
     "BaliNusra":{"Bali":10,"NTB":2, "Lombok":1},
     "Papua":{"Jayapura":2,"Sorong":1},
+    "Luar Negeri":{"Den Haag":1},
 }
 
 image_map = {
@@ -432,6 +433,40 @@ elif page == "Monthly Business Performance":
                 "MSSQ": 34, "MSDQ": 22, "GWS": 1
             }
         },
+        "July": {
+            "gross": 88,
+            "gross_nominal": "Rp660.401.000",
+            "gross_insight": "We partially surpass the Gross Target by 88%.",
+
+            "nett": 56,
+            "nett_nominal": "Rp168.200.792",
+            "nett_insight": "We partially surpass the Nett Target by 56%.",
+
+            "growth_lm": -22,
+            "growth_lm_text": "vs Gross LM Jun’26 (Rp842.115.500)",
+
+            "growth_ytd":126,
+            "growth_ytd_text": "vs Gross YTD Jul’25 (Rp525.423.150)",
+
+            "client": 9,
+            "client_text": [
+                "Mitra Profitamas Motor - Kab. Banjar, Kalimantan Selatan",
+                "Biro Psikologi Resilience Insights - Depok",
+                "DaveHunt International - Jakarta Utara",
+                "Makna Citta Indonesia - Jakarta Selatan",
+                "Biro Seimbang Psychology Care - Bandung",
+                "PP Marieta Indriastuti - Semarang",
+                "Sekolah Indonesia Den Haag - Den Haag, Belanda",
+                "Psikologi Dikantor - Jambi",
+                "KPN Corp - Jakarta Selatan",
+            ],
+            "tools": {
+                "FCAT": 3404, "FCATs": 975, "FCAT-R": 372, "FTPI": 1375,
+                "BIG FIVE": 1268, "FEAST": 23890, "LSSI": 525, "IAMAR": 94,
+                "PII": 312, "EII": 374, "INCRITS": 2483, "OPTI": 3517,
+                "MSSQ": 346, "MSDQ": 347, "GWS": 0
+            }
+        },
     }
     month = st.radio("Choose Month", list(data.keys()), horizontal=True)
     d = data[month]
@@ -523,7 +558,7 @@ elif page ==  "New Client Tracker":
 
     new_client_df = pd.DataFrame({
         "Month": month_order,
-        "Client": [17, 7, 7, 21, 18, 8, 0, 0, 0, 0, 0, 0]
+        "Client": [17, 7, 7, 21, 18, 8, 9, 0, 0, 0, 0, 0]
     })
 
     new_client_df["Month"] = pd.Categorical(
@@ -541,7 +576,7 @@ elif page ==  "New Client Tracker":
 
     sumatra_df = pd.DataFrame({
         "Month": month_order,
-        "Client": [3, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0]
+        "Client": [3, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0]
     })
 
     sumatra_df["Month"] = pd.Categorical(
@@ -569,7 +604,7 @@ elif page ==  "New Client Tracker":
 
         "2026": [
         148, 137, 118, 178,
-        173, 169, 0, 0,
+        173, 169, 178, 0,
         0, 0, 0, 0
         ]
     })
@@ -613,6 +648,10 @@ elif page ==  "New Client Tracker":
         
         "Jun": [
         "-"
+        ],
+        
+        "Jul": [
+        "Psikologi Dikantor"
         ],
     }
 
