@@ -695,7 +695,7 @@ elif page ==  "New Client Tracker":
 
     st.subheader("New Client Sumatra List")
 
-    col1, col2, col3, col4, col5, col6 = st.columns(6)
+    col1, col2, col3, col4, col5, col6, col7 = st.columns(7)
 
     with col1:
 
@@ -737,6 +737,13 @@ elif page ==  "New Client Tracker":
         st.markdown("### Jun")
 
         for client in sumatra_clients["Jun"]:
+            st.markdown(f"• {client}")
+
+    with col7:
+
+        st.markdown("### Jul")
+
+        for client in sumatra_clients["Jul"]:
             st.markdown(f"• {client}")
         
 # PAGE EXPANSION TRACKER
